@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ego_description</name>
+  <version>0.0.0</version>
+  <description>The ego_description package</description>
+
+  <maintainer email="gr.zambella@gmail.com">Grazia Zambella</maintainer>
+  <maintainer email="giovanni.rosato@iit.it">Giovanni Rosato</maintainer>
+
+  <license>BSD 3-Clause License</license>
+  <author>NMMI</author>
+  <author>Istituto Italiano di Tecnologia, Soft Robotics for Human Cooperation and Rehabilitation Lab</author>
+  <author>Centro di Ricerca E. Piaggio</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>urdf</build_depend>
+  
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>urdf</build_export_depend>
+  
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>urdf</exec_depend>
+
+  <export>
+  </export>
+  
+</package>
