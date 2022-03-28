@@ -1,0 +1,41 @@
+<launch>
+
+  <arg name="simulated_robot" default="1"/>
+  <arg name="simulated_on_gazebo" default="1"/>
+  <arg name="simulated_on_rviz" default="1"/>
+  <arg name="acquire_base" default="0"/>
+  <arg name="use_rviz" default="true" />
+<!--
+  <group if="$(arg simulated_on_rviz)">
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find ego_description)/config/urdf_cam.rviz" if="$(arg use_rviz)" />
+    
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find ego_description)/urdf/ego_robot.urdf.xacro" />
+    
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  </group>-->
+  
+  <param name="path" value="$(find ego_description)/urdf/model.urdf" />
+ 
+ 
+  <!-- <node name="invdyn_controller" pkg="invdyn_controller" type="invdyn_controller" output="screen" >
+    <param name="simulated_robot" value="$(arg simulated_robot)"/>
+    <param name="simulated_on_gazebo" value="$(arg simulated_on_gazebo)"/>
+    <rosparam command = "load"
+	    file = "$(find invdyn_controller)/config/config_simulated.yaml"/>
+  </node>-->
+  
+<!--   <node name="kokoct_controller" pkg="kokoct_controller" type="kokoct_controller" output="screen">
+    <param name="simulated_robot" value="$(arg simulated_robot)"/>
+    <param name="simulated_on_gazebo" value="$(arg simulated_on_gazebo)"/>
+    <rosparam command = "load"
+	file = "$(find kokoct_controller)/config/config_simulated.yaml"/>
+  </node>
+ -->
+  <node name="ego_model_simulated" pkg="ego_model" type="ego_model" output="screen" >
+    <param name="simulated_robot" value="$(arg simulated_robot)"/>
+    <param name="simulated_on_rviz" value="$(arg simulated_on_rviz)"/>
+    <param name="simulated_on_gazebo" value="$(arg simulated_on_gazebo)"/>
+    <param name="acquire_base" value="$(arg acquire_base)"/>
+  </node> 
+
+</launch>

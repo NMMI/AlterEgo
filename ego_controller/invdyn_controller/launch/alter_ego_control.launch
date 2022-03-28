@@ -1,0 +1,15 @@
+<launch>
+
+  <arg name="simulated_robot" default="0"/>
+  <arg name="simulated_on_gazebo" default="0"/>
+
+  <param name="path" value="$(find ego_description)/urdf/model.urdf" />
+  	
+  <node name="invdyn_controller" pkg="invdyn_controller" type="invdyn_controller" output="screen" >
+    <param name="simulated_robot" value="$(arg simulated_robot)"/>
+    <param name="simulated_on_gazebo" value="$(arg simulated_on_gazebo)"/>
+    <rosparam command = "load"
+	    file = "$(find invdyn_controller)/config/config.yaml"/>
+  </node>	
+ 
+</launch>

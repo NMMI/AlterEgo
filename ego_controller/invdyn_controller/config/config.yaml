@@ -1,0 +1,45 @@
+Kp_linear_: 10
+Kp_yaw_: 40
+Kp_pitch_: 320
+Kd_linear_: 130
+Kd_yaw_: 40
+Kd_pitch_: 100
+
+Kp_rarm1_: 300
+Kp_rarm2_: 300
+Kp_rarm3_: 300
+Kp_rarm4_: 300
+Kp_rarm5_: 300
+
+Kp_larm1_: 300
+Kp_larm2_: 300
+Kp_larm3_: 300
+Kp_larm4_: 300
+Kp_larm5_: 300
+
+Kd_rarm1_: 100
+Kd_rarm2_: 100
+Kd_rarm3_: 100
+Kd_rarm4_: 100
+Kd_rarm5_: 100
+
+Kd_larm1_: 100
+Kd_larm2_: 100
+Kd_larm3_: 100
+Kd_larm4_: 100
+Kd_larm5_: 100
+
+
+Kp_rarm_pitch_shoulder_: 130
+Kd_rarm_pitch_shoulder_: 10
+
+Kp_larm_pitch_shoulder_: -130
+Kd_larm_pitch_shoulder_: -10
+
+
+Kp_rarm_pitch_elbow_: 50
+Kd_rarm_pitch_elbow_: 10
+
+Kp_larm_pitch_elbow_: -50
+Kd_larm_pitch_elbow_: -10
+

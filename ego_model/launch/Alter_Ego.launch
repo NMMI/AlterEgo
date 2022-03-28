@@ -1,0 +1,19 @@
+<launch>
+
+  <arg name="simulated_robot" default="0"/>
+  <arg name="acquire_base" default="0"/>
+  
+  <param name="path" value="$(find ego_description)/urdf/model.urdf" />
+  
+  <node name="invdyn_controller" pkg="invdyn_controller" type="invdyn_controller" output="screen" >
+    <param name="simulated_robot" value="$(arg simulated_robot)"/>
+    <rosparam command = "load"
+	    file = "$(find invdyn_controller)/config/config.yaml"/>
+  </node>
+
+  <node name="ego_model" pkg="ego_model" type="ego_model" output="screen" >
+    <param name="simulated_robot" value="$(arg simulated_robot)"/>
+    <param name="acquire_base" value="$(arg acquire_base)"/>
+  </node> 
+
+</launch>

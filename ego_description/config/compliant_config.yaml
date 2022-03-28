@@ -1,5 +1,5 @@
 ## Namespace of the robot
-namespace: "AlterEgo"
+namespace: "ego"      # default = "toBEassigend"
 
 ## Sample time
 T_sample: 0.01
@@ -19,8 +19,7 @@ joints_name:
  - "arm_to_right_elbow"
  - "elbow_to_right_forearm"
  - "forearm_to_right_EE"
- 
-## topic names to which publish the references 
+
 ref1_topic_name: 
  - '/reference_1'
  - '/reference_1'
@@ -33,6 +32,7 @@ ref1_topic_name:
  - '/reference_1'
  - '/reference_1'
 
+
 ref2_topic_name: 
  - '/reference_2'
  - '/reference_2'
@@ -44,5 +44,3 @@ ref2_topic_name:
  - '/reference_2'
  - '/reference_2'
  - '/reference_2'
-
-
