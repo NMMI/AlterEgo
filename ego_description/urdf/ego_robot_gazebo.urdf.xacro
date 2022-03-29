@@ -30,7 +30,7 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * \file      ego_v2_robot_gazebo.urdf.xacro
+ * \file      ego_robot_gazebo.urdf.xacro
  *
  * \author       _Centro di Ricerca "E.Piaggio"_
  * \author       _Istituto Italiano di Tecnologia, Soft Robotics for Human Cooperation and Rehabilitation Lab_
@@ -40,6 +40,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="my_robot">
 
   <xacro:include filename="$(find ego_description)/urdf/ego_robot.gazebo"/>
+
+  <xacro:include filename="$(find softhands_description)/urdf/softhands.xacro"/>
 
   <material name="red">
       <color rgba="255 0 0 1.0"/>
@@ -72,13 +74,13 @@
   <material name="wheel">
 	  <color rgba="0.50 0.50 0.50 1.0"/>
   </material>
-<!-- <link name = "world"/>
+<!--  <link name = "world"/>
     
    <joint name="world_to_base" type="fixed">
 	  <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
 	  <parent link="world"/>
 	  <child link="base_link"/>
-  </joint>-->
+  </joint> -->
   
   <link name="base_link">
     <inertial>
@@ -136,6 +138,7 @@
     <origin rpy="0.0 0.0 0.0" xyz="0 0 0.74"/> 
     <parent link="base_link"/>
     <child link="neck"/>
+    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
   </joint>
 
   <link name="head">
@@ -170,41 +173,8 @@
     <origin rpy="0.0 -0.7 0.0" xyz="0 0 0.058"/> 
     <parent link="neck"/>
     <child link="head"/>
+    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
   </joint>
-
-
-<!-- Lidar Stuff begin -->
-
-  <joint name="rplidar_joint" type="fixed">
-    <axis xyz="0 0 0" />
-    <origin xyz="0 0 0.116" rpy="0 0 3.14"/>
-    <parent link="base_link"/>
-    <child link="laser"/>
-  </joint>
-
-   <link name="laser">
-    <collision>
-      <origin xyz="0 1 0" rpy="1.5707 0 4.71"/>
-      <geometry>
-        <mesh filename="package://ego_description/meshes/rplidar.dae" scale="0.001 0.001 0.001" />
-      </geometry>
-    </collision>
-
-    <visual>
-      <origin xyz="0 0 0" rpy="1.5707 0 4.71"/>
-      <geometry>
-        <mesh filename="package://ego_description/meshes/rplidar.dae" scale="0.001 0.001 0.001" />
-      </geometry>
-    </visual>
-
-    <inertial>
-      <mass value="1e-5" />
-      <origin xyz="0 0 0" rpy="1.5707 0 4.71"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
-    </inertial>
-  </link>
-<!-- Lidar stuff end -->
-
 
   <!-- Camera stuff begin -->
   <link name="camera">
@@ -214,10 +184,9 @@
 	  <origin xyz="0.08 0 -0.027" rpy="0 0.71 0"/>
 	  <parent link="head"/>
 	  <child link="camera"/>
+    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
   </joint>
   <!-- Camera stuff end -->
-
-
 
 <!-- IMU stuff begin -->
   <link name="imu_1">
@@ -490,13 +459,12 @@
 	<dynamics damping="0.065" friction="0.025"/>
 	<parent link="${prefix}_forearm_cube"/>
 	<child link="${prefix}_flange_EE"/>
-      </joint>
-      
+      </joint>   
          
-     <joint name="flange_to_${prefix}_EE" type="fixed">
+ <!--     <joint name="flange_to_${prefix}_EE" type="fixed">
 	  <parent link="${prefix}_flange_EE"/>
 	  <child link="${prefix}_hand_EE"/>
-      </joint>
+      </joint> -->
           
     <link name="${prefix}_flange_EE">
       <visual>
@@ -521,7 +489,17 @@
 	<origin rpy="${reflect*1.57075} 1.57075 0" xyz="0 ${reflect*0.033} 0"/>
       </collision>
     </link>    
-     </xacro:macro>
+
+    <xacro:softhands type="${prefix}" 
+      version = "v2.0_simple"
+      parent = "${prefix}_flange_EE"
+      position ="0 ${reflect*0.033} 0"
+      orientation ="${reflect*1.57075} 1.57 0" 
+      operation_mode = "0"
+      translation="0.002">
+    </xacro:softhands>
+
+   </xacro:macro>
   
 
   <!-- Ego Left Arm -->
@@ -537,8 +515,8 @@
   <xacro:cube_elbow prefix="right" reflect="1"/>
   <xacro:cube_forearm prefix="right" reflect="1"/>
   <xacro:EE prefix="right" reflect="1"/>
-  
-  <link name="right_hand_EE">
+
+ <!--  <link name="right_hand_EE">
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
@@ -560,9 +538,9 @@
     </collision>
   </link>
   <gazebo reference="right_hand_EE">
-    <material>Gazebo/Grey</material>
+    <material>Gazebo/Blue</material>
   </gazebo>
-  
+
   <link name="left_hand_EE">
     <visual>
       <material name="qbmove/cube"/>
@@ -578,10 +556,6 @@
     </inertial>
     <collision>
       <material name="qbmove/cube"/>
-      <!-- <origin rpy="0.0 0.0 0.0" xyz="0.0 0.035 0.0"/>
-      <geometry>
-	      <box size="0.07 0.14 0.07"/>
-      </geometry>-->
       <geometry>
 	<mesh filename="package://ego_description/meshes/qbh_hand_v2_ego_sx.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -590,7 +564,7 @@
   </link>
   <gazebo reference="left_hand_EE">
     <material>Gazebo/Grey</material>
-  </gazebo>
+  </gazebo> -->
   
 
 <!-- Ego Left Wheel-->
@@ -680,4 +654,3 @@
   </joint>
 </robot>
 
-<!-- <dynamics damping="7" friction="1.173"/> -->

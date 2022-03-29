@@ -1,0 +1,434 @@
+<?xml version="1.0"?>
+<robot name="ego_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- 
+ *  Software License Agreement: BSD 3-Clause License
+ *
+ * Copyright (c) 2021, NMMI
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * Redistributions of source code must retain the above copyright notice, this
+ * list of conditions and the following disclaimer.
+ *
+ * Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * Neither the name of the copyright holder nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * \file      ego_robot.gazebo
+ *
+ * \author       _Centro di Ricerca "E.Piaggio"_
+ * \author       _Istituto Italiano di Tecnologia, Soft Robotics for Human Cooperation and Rehabilitation Lab_
+ *
+-->
+
+
+<!-- Plugins  -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/ego</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo> 
+
+<!--Trasmission-->
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="L_joint_baseW">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="L_wheel_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="R_joint_baseW">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="R_wheel_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+<!-- Left Arm Actuator-->
+
+ <gazebo>
+    <plugin name="compliant_act_j1" filename="libqbmove_plugin.so">
+      <joint>base_to_left_shoulder</joint>
+      <operation_mode>5</operation_mode>
+      <pub_eltau>true</pub_eltau>
+      <pub_state>true</pub_state>
+      <sub_ext_tau>false</sub_ext_tau>
+
+    </plugin>
+  </gazebo>
+  
+   <gazebo>
+    <plugin name="compliant_act_j2" filename="libqbmove_plugin.so">
+      <joint>shoulder_to_left_arm</joint>
+      <operation_mode>5</operation_mode>
+      <pub_eltau>true</pub_eltau>
+      <pub_state>true</pub_state>
+      <sub_ext_tau>false</sub_ext_tau>
+
+    </plugin>
+  </gazebo>
+  
+   <gazebo>
+    <plugin name="compliant_act_j3" filename="libqbmove_plugin.so">
+      <joint>arm_to_left_elbow</joint>
+      <operation_mode>5</operation_mode>
+      <pub_eltau>true</pub_eltau>
+      <pub_state>true</pub_state>
+      <sub_ext_tau>false</sub_ext_tau>
+
+    </plugin>
+  </gazebo>
+  
+   <gazebo>
+    <plugin name="compliant_act_j4" filename="libqbmove_plugin.so">
+      <joint>elbow_to_left_forearm</joint>
+      <operation_mode>5</operation_mode>
+      <pub_eltau>true</pub_eltau>
+      <pub_state>true</pub_state>
+      <sub_ext_tau>false</sub_ext_tau>
+
+    </plugin>
+  </gazebo>
+  
+   <gazebo>
+    <plugin name="compliant_act_j5" filename="libqbmove_plugin.so">
+	<joint>forearm_to_left_EE</joint>
+	<operation_mode>5</operation_mode>
+	<pub_eltau>true</pub_eltau>
+	<pub_state>true</pub_state>
+	<sub_ext_tau>false</sub_ext_tau>
+
+    </plugin>
+  </gazebo>
+  
+<!-- Right Arm Actuator-->
+
+ <gazebo>
+    <plugin name="compliant_act_j6" filename="libqbmove_plugin.so">
+      <joint>base_to_right_shoulder</joint>
+      <operation_mode>5</operation_mode>
+      <pub_eltau>true</pub_eltau>
+      <pub_state>true</pub_state>
+      <sub_ext_tau>false</sub_ext_tau>
+
+    </plugin>
+  </gazebo>
+  
+   <gazebo>
+    <plugin name="compliant_act_j7" filename="libqbmove_plugin.so">
+      <joint>shoulder_to_right_arm</joint>
+      <operation_mode>5</operation_mode>
+      <pub_eltau>true</pub_eltau>
+      <pub_state>true</pub_state>
+      <sub_ext_tau>false</sub_ext_tau>
+
+    </plugin>
+  </gazebo>
+  
+   <gazebo>
+    <plugin name="compliant_act_j8" filename="libqbmove_plugin.so">
+      <joint>arm_to_right_elbow</joint>
+      <operation_mode>5</operation_mode>
+      <pub_eltau>true</pub_eltau>
+      <pub_state>true</pub_state>
+      <sub_ext_tau>false</sub_ext_tau>
+
+    </plugin>
+  </gazebo>
+  
+   <gazebo>
+    <plugin name="compliant_act_j9" filename="libqbmove_plugin.so">
+      <joint>elbow_to_right_forearm</joint>
+      <operation_mode>5</operation_mode>
+      <pub_eltau>true</pub_eltau>
+      <pub_state>true</pub_state>
+      <sub_ext_tau>false</sub_ext_tau>
+
+    </plugin>
+  </gazebo>
+  
+   <gazebo>
+    <plugin name="compliant_act_j10" filename="libqbmove_plugin.so">
+	<joint>forearm_to_right_EE</joint>
+	<operation_mode>5</operation_mode>
+	<pub_eltau>true</pub_eltau>
+	<pub_state>true</pub_state>
+	<sub_ext_tau>false</sub_ext_tau>
+
+    </plugin>
+  </gazebo>
+
+  <!--<xacro:unless value="$(optenv DISABLE_GAZEBO_CAMERA false)">
+    <gazebo reference="camera">
+    <sensor type="camera" name="zed_camera_left_sensor">
+      <update_rate>30.0</update_rate>
+      <camera name="zed_camera_left_camera">
+        <horizontal_fov>1.3</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>B8G8R8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <cameraName>/camera/zed</cameraName>
+        <imageTopicName>rgb/image_rect_color</imageTopicName>
+        <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+    </gazebo>
+    <gazebo reference="camera">
+    <sensor type="multicamera" name="stereo_camera">
+      <update_rate>30.0</update_rate>
+      <camera name="left">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>720</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <camera name="right">
+        <pose>0 -0.07 0 0 0 0</pose>
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>720</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <camera name="central">
+         <horizontal_fov>0.8709216071359963</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>B8G8R8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="stereo_camera_controller" filename="libgazebo_ros_multicamera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>/camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>left_camera_optical_frame</frameName>
+        <rightFrameName>right_camera_optical_frame</rightFrameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+    </gazebo>
+  </xacro:unless>
+
+  <joint name="camera_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.570796326794897 0 -1.570796326794897"/>
+      <parent link="camera"/>
+      <child link="ZedCamera"/>
+    </joint>
+
+
+  <link name="Depth">
+  </link>
+
+  <joint name="depth_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="camera"/>
+    <child link="Depth"/>
+  </joint>
+
+
+  <gazebo reference="Depth">
+    <sensor type="depth" name="camera_depth">      
+      <always_on>1</always_on>
+      <visualize>true</visualize>             
+      <camera>
+	<horizontal_fov>1.3</horizontal_fov>  
+	<image>
+	    <width>640</width>
+	    <height>480</height>
+	    <format>R8G8B8</format>
+	</image>
+
+	<clip>
+	    <near>0.02</near>
+	    <far>300</far>
+	</clip>
+      </camera>
+      <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
+	<baseline>0.02</baseline>
+	<alwaysOn>true</alwaysOn>
+	<updateRate>0.0</updateRate>
+	<cameraName>camera_depth</cameraName>
+	<imageTopicName>/camera/depth/image</imageTopicName>
+	<cameraInfoTopicName>/camera/depth/camera_info</cameraInfoTopicName>
+	<depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+	<depthImageInfoTopicName>/camera/depth/camera_info</depthImageInfoTopicName>
+	<pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+	<frameName>ZedCamera</frameName>
+	<pointCloudCutoff>0.05</pointCloudCutoff>
+	<distortionK1>0</distortionK1>
+	<distortionK2>0</distortionK2>
+	<distortionK3>0</distortionK3>
+	<distortionT1>0</distortionT1>
+	<distortionT2>0</distortionT2>
+	<CxPrime>0</CxPrime>
+	<Cx>0</Cx>
+	<Cy>0</Cy>
+	<focalLength>0</focalLength>
+	<hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <link name="ZedCamera">
+    <inertial>
+      <mass value="1" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+	    iyy="1.0" iyz="0.0"
+	    izz="1.0" />
+    </inertial>
+  </link>-->
+
+
+<!-- IMU-1 plugin -->
+  <xacro:unless value="$(optenv DISABLE_GAZEBO_IMU false)">
+    <gazebo reference="imu_1">
+      <gravity>true</gravity>
+      <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>500</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+	  <topicName>imu</topicName>
+	  <bodyName>imu_1</bodyName>
+	  <updateRateHZ>10.0</updateRateHZ>
+	  <gaussianNoise>0.0</gaussianNoise>
+	  <xyzOffset>0 0 0</xyzOffset>
+	  <rpyOffset>0 0 0</rpyOffset>
+	  <frameName>imu_1</frameName>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+      </sensor>
+    </gazebo>
+  </xacro:unless>
+  
+<!-- Laser For Version 2.0  -->
+  
+  <gazebo reference="laser">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+ <!-- RpLidar A2 using CPU -->
+<!--  <gazebo reference="laser">
+    <sensor type="ray" name="head_rplidar_sensor">
+      <pose>0 0 0.06 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159265</min_angle>
+            <max_angle>3.14159265</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.2</min>
+          <max>12.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_laser.so">
+        <topicName>scan</topicName>
+        <frameName>laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo> -->
+
+
+</robot>

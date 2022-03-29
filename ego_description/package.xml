@@ -4,8 +4,13 @@
   <version>0.0.0</version>
   <description>The ego_description package</description>
 
-  <maintainer email="frank@todo.todo">frank</maintainer>
-  <license>TODO</license>
+  <maintainer email="gr.zambella@gmail.com">Grazia Zambella</maintainer>
+  <maintainer email="giovanni.rosato@iit.it">Giovanni Rosato</maintainer>
+
+  <license>BSD 3-Clause License</license>
+  <author>NMMI</author>
+  <author>Istituto Italiano di Tecnologia, Soft Robotics for Human Cooperation and Rehabilitation Lab</author>
+  <author>Centro di Ricerca E. Piaggio</author>
 
   <buildtool_depend>catkin</buildtool_depend>
   
@@ -19,8 +24,11 @@
   
   <exec_depend>roscpp</exec_depend>
   <exec_depend>urdf</exec_depend>
-
-  <export>
-  </export>
+  
+  <!-- The export tag contains other, unspecified, tags -->
+<export>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+    <gazebo_ros gazebo_media_path="${prefix}/models"/>
+</export>
   
 </package>

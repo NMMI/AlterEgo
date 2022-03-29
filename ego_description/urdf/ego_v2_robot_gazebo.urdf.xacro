@@ -1,15 +1,50 @@
-<?xml version="1.0"?>
+<!-- 
+ *  Software License Agreement: BSD 3-Clause License
+ *
+ * Copyright (c) 2021, NMMI
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * Redistributions of source code must retain the above copyright notice, this
+ * list of conditions and the following disclaimer.
+ *
+ * Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * Neither the name of the copyright holder nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * \file      ego_v2_robot_gazebo.urdf.xacro
+ *
+ * \author       _Centro di Ricerca "E.Piaggio"_
+ * \author       _Istituto Italiano di Tecnologia, Soft Robotics for Human Cooperation and Rehabilitation Lab_
+ *
+-->
 
- 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="my_robot">
 
-  <xacro:include filename="$(find ego_description)/urdf/ego_robot_compliant.gazebo"/>
+  <xacro:include filename="$(find ego_description)/urdf/ego_robot.gazebo"/>
+  <xacro:include filename="$(find softhands_description)/urdf/softhands.xacro"/>
 
-<!--
   <material name="red">
       <color rgba="255 0 0 1.0"/>
   </material>
--->
+
   <material name="qbmove/flange">
 	  <color rgba="0.0 0.5 0.8 1.0"/>
   </material>
@@ -37,26 +72,21 @@
   <material name="wheel">
 	  <color rgba="0.50 0.50 0.50 1.0"/>
   </material>
-  <!-- limit velocity: 0.26 linear, angular -->
-  <xacro:arg name="damping_test" default="5.2"/>
-  <xacro:arg name="friction_test" default="3"/>
- 
- <!-- <link name = "map"/>
+<!-- <link name = "world"/>
     
    <joint name="world_to_base" type="fixed">
 	  <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
-	  <parent link="map"/>
+	  <parent link="world"/>
 	  <child link="base_link"/>
-  </joint>
+  </joint>-->
   
- -->
   <link name="base_link">
     <inertial>
       <origin xyz="-2.4530316e-4 1.1726402e-3 2.6549449e-1" rpy="0 0 0"/>
       <mass value="21.17"/>
       <inertia ixx="1.86"  ixy="-5.63e-4"  ixz="-1.48e-2" 
-        iyy="1.70"      iyz="4.31e-3" 
-            izz="0.22" />
+			  iyy="1.70" 	    iyz="4.31e-3" 
+					  izz="0.22" />
     </inertial>
     <visual>
       <material name="SoftLightBlue"/>
@@ -134,7 +164,7 @@
     <material>Gazebo/Grey</material>
     <selfCollide>true</selfCollide>
   </gazebo>
-
+ 
   <joint name="neck_to_head" type="fixed">
     <origin rpy="0.0 -0.7 0.0" xyz="0 0 0.058"/> 
     <parent link="neck"/>
@@ -146,14 +176,14 @@
 
   <joint name="rplidar_joint" type="fixed">
     <axis xyz="0 0 0" />
-    <origin xyz="0 0 0.116" rpy="0 0 0"/>
+    <origin xyz="0 0 0.116" rpy="0 0 3.14"/>
     <parent link="base_link"/>
     <child link="laser"/>
   </joint>
 
    <link name="laser">
     <collision>
-      <origin xyz="0 0 0" rpy="1.5707 0 4.71"/>
+      <origin xyz="0 1 0" rpy="1.5707 0 4.71"/>
       <geometry>
         <mesh filename="package://ego_description/meshes/rplidar.dae" scale="0.001 0.001 0.001" />
       </geometry>
@@ -172,29 +202,29 @@
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
     </inertial>
   </link>
-<!-- Lidar stuff end -->
+  <!-- Lidar stuff end -->
 
   <!-- Camera stuff begin -->
-  <link name="camera">
+<!--  <link name="camera">
   </link>
 
   <joint name="head_to_camera" type="fixed">
 	  <origin xyz="0.08 0 -0.027" rpy="0 0.71 0"/>
 	  <parent link="head"/>
 	  <child link="camera"/>
-  </joint>
+  </joint>-->
   <!-- Camera stuff end -->
 
-<!-- IMU stuff begin -->
+  <!-- IMU stuff begin -->
   <link name="imu_1">
   </link>
 
   <joint name="base_to_imu1" type="fixed">
-	  <origin xyz="0 0.1025 0.02275" rpy="0 0 0"/>
-	  <parent link="base_link"/>
-	  <child link="imu_1"/>
+    <origin xyz="0 0.1025 0.02275" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="imu_1"/>
   </joint>
-<!-- IMU stuff end-->
+  <!-- IMU stuff end-->
 
   <xacro:macro name="cube_shoulder" params="prefix reflect" >
     <link name="${prefix}_shoulder_flange">
@@ -239,23 +269,21 @@
       <selfCollide>true</selfCollide>
     </gazebo>
 
-   <joint name="base_to_${prefix}_shoulder" type="revolute">
-  <axis xyz="0 0 1"/>
-  
-  <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
-<origin xyz="0.015 ${reflect*-0.18} ${0.668}" rpy="${reflect*1.3988626} ${reflect*-0.0301584} ${reflect*0.1719337} "/>
-  
-  <dynamics damping="0.065" friction="0.025"/>
-  <parent link="base_link"/>
-  <child link="${prefix}_shoulder_flange"/>
+      <joint name="base_to_${prefix}_shoulder" type="revolute">
+	<axis xyz="0 0 1"/>
+		<limit effort="1000.0" lower="-3.14" upper="3.14" velocity="0.5"/>
+		<origin xyz="0.015 ${reflect*-0.18} ${0.668}" rpy="${reflect*1.3988626} ${reflect*-0.0301584} ${reflect*0.1719337} "/>
+	<parent link="base_link"/>
+	<child link="${prefix}_shoulder_flange"/>
       </joint>
-            <joint name="${prefix}_shoulder_flange_to_cube" type="fixed">
-    <parent link="${prefix}_shoulder_flange"/>
-    <child link="${prefix}_shoulder_cube"/>
+
+      <joint name="${prefix}_shoulder_flange_to_cube" type="fixed">
+	  <parent link="${prefix}_shoulder_flange"/>
+	  <child link="${prefix}_shoulder_cube"/>
       </joint>
   </xacro:macro>
 
-  <xacro:macro name="cube_arm" params="prefix reflect left right" >
+  <xacro:macro name="cube_arm" params="prefix reflect" >
     <link name="${prefix}_arm_flage">
       <visual>
 	<material name="qbmove/flange"/>
@@ -304,42 +332,18 @@
       <selfCollide>true</selfCollide>
     </gazebo>
 
-
-<!-- se myvar è true sposta il braccio sinistro -->
-  <xacro:if value="${left}">
-    <joint name="shoulder_to_${prefix}_arm" type="revolute">
-    
-    <axis xyz="1 0 0"/>
-    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
-    <!-- <origin xyz="0.0 0 0" rpy="0 0 0"/> -->
-    <origin xyz="0.0 0 0" rpy="-0.2 0 0"/>
-    <dynamics damping="0.065" friction="0.025"/>
-    <parent link="${prefix}_shoulder_cube"/>
-    <child link="${prefix}_arm_flage"/>
-  </joint>
-  </xacro:if>
- 
-
-  <!-- se myvar è false sposta il braccio destro -->
-    <xacro:if value="${right}">
-    <joint name="shoulder_to_${prefix}_arm" type="revolute">
-    
-    <axis xyz="1 0 0"/>
-    <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
-    <!-- <origin xyz="0.0 0 0" rpy="0 0 0"/> -->
-    <origin xyz="0.0 0 0" rpy="0.2 0 0"/>
-    <dynamics damping="0.065" friction="0.025"/>
-    <parent link="${prefix}_shoulder_cube"/>
-    <child link="${prefix}_arm_flage"/>
-  </joint>
-  </xacro:if>
-
-
-    <joint name="${prefix}_arm_flage_to_cube" type="fixed">
-    <parent link="${prefix}_arm_flage"/>
-    <child link="${prefix}_arm_cube"/>
+      <joint name="shoulder_to_${prefix}_arm" type="revolute">
+	  <axis xyz="1 0 0"/>
+		  <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="0.5"/>
+		  <origin xyz="0.0 0 0" rpy="0 0.0 0"/>
+	  <parent link="${prefix}_shoulder_cube"/>
+	  <child link="${prefix}_arm_flage"/>
       </joint>
 
+      <joint name="${prefix}_arm_flage_to_cube" type="fixed">
+	  <parent link="${prefix}_arm_flage"/>
+	  <child link="${prefix}_arm_cube"/>
+      </joint>
   </xacro:macro>
 
   <xacro:macro name="cube_elbow" params="prefix reflect" >
@@ -393,16 +397,15 @@
       <selfCollide>true</selfCollide>
     </gazebo>
 
-   <joint name="arm_to_${prefix}_elbow" type="revolute">
+    <joint name="arm_to_${prefix}_elbow" type="revolute">
       <axis xyz="0 1 0"/>
-
-      <limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
-      <origin rpy="0.0 0.0 0.0" xyz="0.0 ${reflect*-0.168} 0.0"/>
-      <dynamics damping="0.065" friction="0.025"/>
+	<limit effort="1000.0" lower="-3.14" upper="3.14" velocity="0.5"/>
+	<origin rpy="0.0 0.0 0.0" xyz="0.0 ${reflect*-0.168} 0.0"/>
       <parent link="${prefix}_arm_cube"/>
       <child link="${prefix}_elbow_flange"/>
     </joint>
-      <joint name="${prefix}_elbow_flage_to_cube" type="fixed">
+
+    <joint name="${prefix}_elbow_flage_to_cube" type="fixed">
       <parent link="${prefix}_elbow_flange"/>
       <child link="${prefix}_elbow_cube"/>
     </joint>
@@ -447,10 +450,10 @@
         <inertia ixx="3.8914e-04" iyy="3.8914e-04" izz="3.8914e-04" ixy="0" ixz="0" iyz="0"/>
       </inertial>
       <collision>
-  <origin rpy="0.0 0.0 0.0" xyz="0.0 ${reflect*(-0.09)} 0.0"/>
-  <geometry>
-    <box size="0.07 0.07 0.07"/>
-  </geometry>
+	  <origin rpy="0.0 0.0 0.0" xyz="0.0 ${reflect*(-0.09)} 0.0"/>
+	  <geometry>
+		  <box size="0.07 0.07 0.07"/>
+	  </geometry>
       </collision>
     </link>
     <gazebo reference="${prefix}_forearm_cube">
@@ -460,7 +463,7 @@
 
     <joint name="elbow_to_${prefix}_forearm" type="revolute">
 	<axis xyz="0 0 1"/>
-		<limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
+		<limit effort="1000.0" lower="-3.14" upper="3.14" velocity="0.5"/>
 		<origin xyz="0.0 0 0" rpy="0 0.0 0"/>
 	<parent link="${prefix}_elbow_cube"/>
 	<child link="${prefix}_forearm_flange"/>
@@ -475,17 +478,17 @@
     <xacro:macro name="EE" params="prefix reflect" >
       <joint name="forearm_to_${prefix}_EE" type="revolute">
 	<axis xyz="0 1 0"/>
-		<limit effort="1000.0" lower="-3.14" upper="3.14" velocity="1000.0"/>
+		<limit effort="1000.0" lower="-3.14" upper="3.14" velocity="0.5"/>
 		<origin rpy="0.0 0.0 0.0" xyz="0.0 ${reflect*-0.168} 0.0"/>
 	<parent link="${prefix}_forearm_cube"/>
 	<child link="${prefix}_flange_EE"/>
       </joint>
-      
+<!--      
          
      <joint name="flange_to_${prefix}_EE" type="fixed">
 	  <parent link="${prefix}_flange_EE"/>
 	  <child link="${prefix}_hand_EE"/>
-      </joint>
+      </joint>-->
           
     <link name="${prefix}_flange_EE">
       <visual>
@@ -510,24 +513,33 @@
 	<origin rpy="${reflect*1.57075} 1.57075 0" xyz="0 ${reflect*0.033} 0"/>
       </collision>
     </link>    
+    
+     <xacro:softhands type="${prefix}" 
+      version = "v2.0_simple"
+      parent = "${prefix}_flange_EE"
+      position ="0 ${reflect*0.033} 0"
+      orientation ="${reflect*1.57075} 1.57 0" 
+      operation_mode = "0"
+      translation="0.002">
+    </xacro:softhands>
      </xacro:macro>
   
 
   <!-- Ego Left Arm -->
   <xacro:cube_shoulder prefix="left" reflect="-1"/>
-  <xacro:cube_arm prefix="left" reflect="-1" left="1" right="0"/>
+  <xacro:cube_arm prefix="left" reflect="-1"/>
   <xacro:cube_elbow prefix="left" reflect="-1"/>
   <xacro:cube_forearm prefix="left" reflect="-1"/>
   <xacro:EE prefix="left" reflect="-1"/>
 
   <!-- Ego Right Arm -->
   <xacro:cube_shoulder prefix="right" reflect="1"/>
-  <xacro:cube_arm prefix="right" reflect="1" left="0" right="1"/>
+  <xacro:cube_arm prefix="right" reflect="1"/>
   <xacro:cube_elbow prefix="right" reflect="1"/>
   <xacro:cube_forearm prefix="right" reflect="1"/>
   <xacro:EE prefix="right" reflect="1"/>
   
-  <link name="right_hand_EE">
+<!--  <link name="right_hand_EE">
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
@@ -538,21 +550,21 @@
     <inertial>
       <origin rpy="0 0 0" xyz="4.62e-3 -0.062 -4.88e-3"/>
       <mass value="0.381"/>
-    <inertia ixx="1.173e-3" ixy="0" ixz="0" iyy="1.33e-3" iyz="0" izz="2.83e-4"/>
+      <inertia ixx="1.173e-3" ixy="0" ixz="0" iyy="1.33e-3" iyz="0" izz="2.83e-4"/>
     </inertial>
     <collision>
       <material name="qbmove/cube"/>
       <geometry>
 	<mesh filename="package://ego_description/meshes/qbh_hand_v2_ego_dx.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin xyz="0.008 -0.07 -0.019" rpy="1.57075  0 0" />
+      <origin xyz="0.008 -0.07 -0.019" rpy="1.57075 0 0" />
     </collision>
   </link>
   <gazebo reference="right_hand_EE">
     <material>Gazebo/Grey</material>
-  </gazebo>
+  </gazebo>-->
   
-  <link name="left_hand_EE">
+<!--  <link name="left_hand_EE">
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
@@ -563,24 +575,19 @@
     <inertial>
       <origin rpy="0 0 0" xyz="4.62e-3 0.062 -4.88e-3"/>
       <mass value="0.381"/>
-    <inertia ixx="1.173e-3" ixy="0" ixz="0" iyy="1.33e-3" iyz="0" izz="2.83e-4"/>
+      <inertia ixx="1.173e-3" ixy="0" ixz="0" iyy="1.33e-3" iyz="0" izz="2.83e-4"/>
     </inertial>
     <collision>
       <material name="qbmove/cube"/>
-      <!-- <origin rpy="0.0 0.0 0.0" xyz="0.0 0.035 0.0"/>
-      <geometry>
-	      <box size="0.07 0.14 0.07"/>
-      </geometry>-->
       <geometry>
 	<mesh filename="package://ego_description/meshes/qbh_hand_v2_ego_sx.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin rpy="1.57075  0 0" xyz="0.008 0.07 -0.019"/>
+      <origin rpy="1.57075 0 0" xyz="0.008 0.07 -0.019"/>
     </collision>
   </link>
   <gazebo reference="left_hand_EE">
     <material>Gazebo/Grey</material>
-  </gazebo>
-
+  </gazebo>-->
 
 <!-- Ego Left Wheel-->
 
@@ -620,7 +627,7 @@
     <axis xyz="0 1 0"/>
     <limit effort="22" velocity="1e16"/>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.275 0.0"/>
-    <dynamics damping="$(arg damping_test)" friction="$(arg friction_test)"/>
+    <dynamics damping="4.3" friction="1.173"/>
     <parent link="base_link"/>
     <child link="wheel_L"/>
   </joint>
@@ -663,7 +670,7 @@
     <axis xyz="0 1 0"/>
     <limit effort="22" velocity="1e16"/>
     <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.275 0.0"/> 
-   <dynamics damping="$(arg damping_test)" friction="$(arg friction_test)"/>
+    <dynamics damping="4.3" friction="1.173"/>
     <parent link="base_link"/>
     <child link="wheel_R"/>
   </joint>

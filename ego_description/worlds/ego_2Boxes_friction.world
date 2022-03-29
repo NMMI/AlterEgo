@@ -1,0 +1,168 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    
+    <!-- Sky with clouds -->
+    <scene>
+      <sky>
+        <clouds>
+            <speed>0</speed>
+        </clouds>
+      </sky>
+    </scene>
+
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    
+      <!-- Focus camera on a desired location -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <!-- pose is (m) X Y Z (rad) R P Y -->
+        <pose>0.264105 3.266872 0.837978 0 0.06 -1.59881</pose> 
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+
+    <!-- Objects in the world -->    
+    <model name='two_boxes'>
+
+      <link name='box_1'>
+        <pose>0.65 0 0.16125 0 0 0</pose>
+        <inertial>
+          <mass>2.5</mass>
+          <pose>0 0 0 0 0 0</pose>
+          <inertia>
+            <ixx>0.140859375</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.123677083</iyy>
+            <iyz>0</iyz>
+            <izz>0.101192708</izz>
+          </inertia>
+        </inertial>
+        <collision name='b1_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.475 0.51 0.3225</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.21</mu>
+                <mu2>0.21S</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+        </collision>
+        <visual name='b1_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.475 0.51 0.3225</size>
+            </box>
+          </geometry>
+        </visual>
+        <gravity>1</gravity>
+      </link>
+
+      <link name='box_2'>
+        <pose>0.65 0 0.4837 0 0 0</pose>
+        <collision name='b2_collision'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.475 0.51 0.3225</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+          <contact>
+            <collide_bitmask>65535</collide_bitmask>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>10</mu>
+              <mu2>10</mu2>
+            </ode>
+            <torsional>
+              <ode/>
+            </torsional>
+          </friction>
+          <bounce/>
+        </surface>
+        </collision>
+        <visual name='b2_visual'>
+          <pose>0 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.475 0.51 0.3225</size>
+            </box>
+          </geometry>
+        </visual>
+        <inertial>
+          <inertia>
+            <ixx>0.140859375</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.133677083</iyy>
+            <iyz>0</iyz>
+            <izz>0.101192708</izz>
+          </inertia>
+          <mass>2.5</mass>
+        </inertial>
+        <gravity>1</gravity>
+      </link>
+
+      <joint name='boxes_union' type='fixed'>
+        <parent>box_1</parent>
+        <child>box_2</child>
+        <pose>0 0 0.3225 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>1.58</upper>
+          </limit>
+          <dynamics>
+            <damping>1</damping>
+            <friction>10</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      
+    </model>
+
+  </world>
+
+</sdf>
