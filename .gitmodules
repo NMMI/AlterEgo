@@ -1,3 +1,6 @@
 [submodule "ROS-Gazebo-compliant-actuators-plugin"]
 	path = ROS-Gazebo-compliant-actuators-plugin
 	url = https://github.com/NMMI/ROS-Gazebo-compliant-actuators-plugin.git
+[submodule "SoftHand-Plugin"]
+	path = softhand
+	url = https://github.com/NMMI/SoftHand-Plugin.git
