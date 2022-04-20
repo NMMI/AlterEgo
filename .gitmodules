@@ -4,3 +4,8 @@
 [submodule "SoftHand-Plugin"]
 	path = softhand
 	url = https://github.com/NMMI/SoftHand-Plugin.git
+[submodule "utils/rbdl"]
+	path = utils/rbdl
+	url = https://github.com/CentroEPiaggio/rbdl.git
+	branch = floating_base
+	ignore = dirty
