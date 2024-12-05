@@ -1,4 +1,4 @@
-# AlterEgo_Gazebo_Simulator
+# AlterEgo Real Software and Simulator
 
 To clone with SSH use:
 ```
