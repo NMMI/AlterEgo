@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <group ns="$(env ROBOT_NAME)">
+
+    <arg name="yamlDance" default="$(find ego_dance)/config/dance_with_me.yaml"/>
+    <rosparam command="load" file="$(arg yamlDance)"/>
+    
+    <node name="main_dance_with_me" pkg="ego_dance" type="dance_with_me_node" output="screen"/>
+  </group>
+
+</launch>

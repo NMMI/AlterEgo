@@ -1,0 +1,19 @@
+head:
+  DH_Xtr: [0, 0]
+  DH_Xrot: [-1.57, 1.57]
+  DH_Ztr: [0, 0]
+  DH_Zrot: [0, 0]
+  T_t2s: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0.132, 0, 0, 0, 1]
+  T_o2t: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0.0, 0, 0 ,0, 1]
+  T_h2fwk: [0, 0, 1, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1]
+  R_o2b: [0, 0, -1, -1, 0, 0, 0, 1, 0]
+  q_min: [-1.57, -1.0]
+  q_max: [1.57, 1.57]
+  pose_ref_topic: "head_pos"
+  stiff_ref_topic: "stiff_ref_pose"
+  phantom_arm_topic: "phantom_head/ego_head_phantom/control/joint_states"
+  ref_head_Lc_topic: "left/ref_neck"
+  ref_head_Rc_topic: "right/ref_neck"
+  cubes_shaft_topic:  "meas_neck_shaft"
+  qbmove_tf_ids: [21, 22]
+  active_back_pos: 1

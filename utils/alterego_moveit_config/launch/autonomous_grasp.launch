@@ -1,0 +1,24 @@
+<launch>
+    <!-- Utilizzare il tempo di simulazione -->
+    <arg name="use_sim_time" default="false" />
+    <arg name="AlterEgoVersion" default="3" />
+
+    <!-- load yaml pid param for cubes -->
+    <rosparam file="$(find alterego_moveit_config)/config/cubes_pid_param.yaml" command="load" />
+    
+
+    <!-- Move Arm -->
+    <node pkg="alterego_moveit_config" name="Pick" type="mainPickObject.py"
+        output="screen" />
+
+
+    <!-- Move Arm -->
+    <node pkg="alterego_moveit_config" name="fake_HappyPoseService" type="fake_HappyPoseService.py"
+    output="screen" />
+
+    <!-- Joint Controller -->
+    <node pkg="alterego_moveit_config" name="joint_controller" type="JointPIDController.py"
+        output="screen" />
+
+
+</launch>

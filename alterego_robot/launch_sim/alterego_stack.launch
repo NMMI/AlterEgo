@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="AlterEgoVersion" default="3" />
+    <!-- ************** AlterEgo Stack ************** -->
+    <group ns="$(env ROBOT_NAME)">
+
+        <!-- Simulation parameters override-->
+        <!-- <param name="SimulatedEgo" value="true" /> we don't need it anymore because
+        sim_variables.yaml loads it -->
+        <arg name="yamlSIMPARAM"
+            default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/sim_variables.yaml" />
+        <rosparam command="load" file="$(arg yamlSIMPARAM)" />
+
+
+        <!-- LAUNCH IMU -->
+        <include file="$(find alterego_robot)/launch_sim/imu_sim.launch" pass_all_args="true" />
+
+        <!-- LOAD THE WHEELS  -->
+        <include file="$(find alterego_robot)/launch_sim/wheels_sim.launch" pass_all_args="true" />
+
+        <!-- LOAD PLUGIN FOR THE ARMS WITH A COMPLIANT MODE  -->
+        <include file="$(find alterego_robot)/launch_sim/body_activation_sim.launch"
+            pass_all_args="true" />
+
+        <!-- LOAD SIM_ARM_MANAGER for the body_movement  -->
+        <include file="$(find alterego_robot)/launch_sim/body_movement_sim.launch"
+            pass_all_args="true" />
+
+
+        <!-- Visualize robot on RVIZ  -->
+        <group if="$(arg use_visualize)">
+            <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+                <remap from="joint_states" to="/joint_states" />
+            </node>           
+            <node pkg="visualize_robot" name="visualize_robot" type="visualize_robot_node" output="screen"/>
+            <node pkg="rviz" type="rviz" name="rviz" args="-d $(find alterego_robot)/config/ego.rviz" if="$(arg use_rviz)"/>
+        </group>
+        
+        <!-- COMPUTE ROBOT_STATE -->
+        <include file="$(find alterego_state_publisher)/launch/alterego_state_publisher.launch"
+            pass_all_args="true" />
+
+        <!-- INTERACTIVE MARKES FOR HANDS -->
+        <group if="$(arg use_marker)">
+            <group ns="right">
+                <node pkg="hand_interactive_marker" name="right_hand_marker" type="basic_controls"
+                    output="screen" />
+            </group>
+        </group>
+
+    </group>
+     
+
+    <!-- LOAD MOVEIT DEMO  -->
+    <include file="$(find alterego_moveit_config)/launch/demo.launch" pass_all_args="true" >
+        <arg name="use_rviz" value="true" />
+    </include>      
+    <!-- LAUNCH PILOT -->
+    <include file="$(find alterego_robot)/launch_sim/pilot_sim.launch" if="$(arg use_pilot)"
+        pass_all_args="true" />
+
+    <!--navigation-->
+    <include file="$(find navigation_stack)/launch/autonomous_nav.launch" if="$(arg nav)" pass_all_args="true" />
+</launch>

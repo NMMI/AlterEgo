@@ -1,0 +1,14 @@
+# SIM PARAMS
+# IN
+gazebo_imu_plugin_topic: 'imu'
+gazebo_link_state_topic: '/gazebo/link_states'
+cube_measurement_topic: "wheels/qb_interface_node/qb_class/cube_measurement"
+joint_states_topic: "wheels/joint_states"
+
+
+# OUT
+gyro_good_topic: 'imu/gyro_good'
+RPY_topic: 'imu/RPY'
+cube_ref_topic: "wheels/qb_interface_node/qb_class/cube_ref"
+right_wheel_command_topic: "wheels/right_wheel_controller/command"
+left_wheel_command_topic: "wheels/left_wheel_controller/command"

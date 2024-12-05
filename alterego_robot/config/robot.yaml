@@ -1,0 +1,27 @@
+# Nodes Frequencies
+imu:
+  imu_frequency:              400  # [Hz]
+  sensor_frequency:           400
+
+state_publisher_frequency:    400  # [Hz]
+
+head:
+  head_frequency:             100  # [Hz]
+wheels:
+  lqr_frequency:              200  # [Hz]
+
+
+system_check_frequency:     200  # [Hz]
+arms_frequency:             100  # [Hz]
+body_frequency:             100  # [Hz]
+hand_move_frequency:        100  # [Hz]  
+pitch_correction_frequency:  50  # [Hz]
+current_frequency:           50  # [Hz]
+
+pressure_fb_frequency:       30  # [Hz]
+vibrotactile_fb_frequency:  300  # [Hz]
+force_estimation_frequency:  15  # [Hz]
+
+# Moving Median filter window size
+power_booster_topic: "power_booster"
+weight_w_size: 50

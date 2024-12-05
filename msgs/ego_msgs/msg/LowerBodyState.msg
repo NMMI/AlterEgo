@@ -1,0 +1,25 @@
+float64 right_wheel_enc
+float64 left_wheel_enc 
+
+float64 right_wheel_pos
+float64 left_wheel_pos
+float64 wheels_angular_pos
+
+float64 right_wheel_vel
+float64 left_wheel_vel
+float64 wheels_angular_vel
+
+
+float64 mobile_base_pos_x
+float64 mobile_base_pos_y
+float64 mobile_base_lin_displacement
+float64 mobile_base_lin_vel
+float64 yaw_angle
+float64 yaw_rate
+float64 mobile_base_ang_vel
+float64 pitch_angle
+float64 pitch_rate
+
+float64 base_battery_voltage
+
+

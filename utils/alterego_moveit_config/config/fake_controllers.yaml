@@ -1,0 +1,18 @@
+controller_list:
+  - name: fake_right_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - base_link_to_right_shoulder_flange
+      - right_shoulder_cube_to_right_arm_flange
+      - right_arm_cube_to_right_elbow_flange_sensor
+      - right_elbow_cube_to_right_forearm_flange
+      - right_forearm_cube_to_right_wrist_flange
+      - right_wrist_to_right_hand
+  - name: fake_right_hand_EE_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - right_wrist_to_right_hand
+      - right_hand_moveit_joint
+initial:  # Define initial robot poses per group
+  - group: right_arm
+    pose: home

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <node name="master_discovery" pkg="fkie_master_discovery" type="master_discovery" args="0" output="screen" />
+    <node name="master_sync" pkg="fkie_master_sync" type="master_sync" output="screen"/>
+
+</launch>

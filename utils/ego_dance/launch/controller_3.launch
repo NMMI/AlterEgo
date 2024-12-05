@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <rosparam command="load" file="$(find ego_dance)/config/ego_dance.yaml"/>
+  <node name="ego_dance" pkg="ego_dance" type="controller_3_node" output="screen" > 
+  </node> 
+
+</launch>

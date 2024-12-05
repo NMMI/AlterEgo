@@ -1,0 +1,29 @@
+GlobalPlanner:
+  use_dijkstra: true # Usa l'algoritmo di Dijkstra per la pianificazione globale
+  use_astar: false  # Usa l'algoritmo A* per la pianificazione globale
+  use_quadratic: true # Usa la pianificazione quadratica (migliora Dijkstra)
+  use_grid_path: false  # Usa un percorso a griglia
+  old_navfn_behavior: false  # Usa il comportamento vecchio di NavFn
+  allow_unknown: true  # Permetti il passaggio attraverso celle sconosciute
+  default_tolerance: 0.0  # Tolleranza predefinita per il goal
+  planner_window_x: 8.0  # Dimensione della finestra del planner lungo l'asse x
+  planner_window_y: 8.0  # Dimensione della finestra del planner lungo l'asse y
+  cost_factor: 0.8  # Fattore di costo per la pianificazione
+  orientation_mode: 1  # Modalità di orientamento (0: nessuna, 1: lungo il percorso, 2: verso il goal)
+  neutral_cost: 80  # Costo delle celle neutre
+  lethal_cost: 255  # Costo delle celle letali
+  outline_map: true  # Disegna il contorno della mappa
+
+
+  
+  
+  
+# se usi NaVFn cambia il base_global_panner nel file move_base.launch
+# NavFn:
+#   use_dijkstra: true  # Usa l'algoritmo di Dijkstra per la pianificazione globale
+#   allow_unknown: false  # Non permettere il passaggio attraverso celle sconosciute
+#   default_tolerance: 0.5  # Aumenta la tolleranza per il goal
+#   planner_window_x: 1.0  # Dimensione della finestra del planner lungo l'asse x
+#   planner_window_y: 1.0  # Dimensione della finestra del planner lungo l'asse y
+#   cost_factor: 2.0  # Riduci il fattore di costo per bilanciare tra lunghezza del percorso e distanza dagli ostacoli
+#   orientation_mode: 1  # Modalità di orientamento lungo il percorso

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="AlterEgoVersion" default="3" />
+  <arg name="use_sim_time" default="false" />
+  <!-- LOAD ROBOT DESCRIPTION  -->
+  <arg name="urdf_dir"
+    value="$(find alterego_robot)/alterego_description/urdf/ego_robot_gazebo_v$(arg AlterEgoVersion).urdf.xacro" />
+  <param name="robot_description"
+    command="$(find xacro)/xacro '$(arg urdf_dir)' ENABLE_CAMERA:=false ENABLE_LASER:=false ENABLE_REALSENSE:=false" />
+
+  <!-- LOAD MOVEIT DEMO  -->
+  <include file="$(find alterego_moveit_config)/launch/demo.launch" pass_all_args="true" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen" />
+
+
+  <!-- LOAD VISUALIZE -->
+  <group ns="$(env ROBOT_NAME)">
+    <!-- LOAD REALSENSE -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch" unless="$(arg use_sim_time)">
+      <arg name="align_depth" value="true" />
+      <arg name="enable_pointcloud" value="true" />
+    </include>
+
+    <node pkg="visualize_robot" name="visualize_robot" type="visualize_robot_node" output="screen" />
+
+  </group>
+
+</launch>

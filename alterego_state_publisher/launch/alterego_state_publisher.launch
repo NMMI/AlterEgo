@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="yamlState" default="$(find alterego_robot)/config/alterego_state.yaml" />
+  <rosparam command="load" file="$(arg yamlState)" />
+  <node pkg="alterego_state_publisher" name="alterego_state_publisher"
+    type="alterego_state_publisher" output="screen" />
+
+</launch>

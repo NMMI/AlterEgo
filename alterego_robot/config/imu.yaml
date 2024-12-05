@@ -1,0 +1,12 @@
+imu:
+  eq_preset: false # [Equilibrium/Preset] -> True , [P1/P2/PL] -> False
+  hand_perc: false # [Hand command in percentual] -> True , [Hand command in TICK] -> False
+  current: false # [Activate current reader] -> True, [Deactivate current reader] -> False
+  unit: 'RAD' # Unit of measurement, ['DEG', 'RAD', 'TICK']
+  # hand_step_div: 20 #Step time divider for the hand (Not needed for AlterEgo)
+  compute_angles: false #Angles from computed quaternions (if needed)
+  baudrate: 2000000 # BaudRate [200000, 460800]
+  IDcubes: [] # ID cubes in chain
+  IDhands: [] # ID hands in chain
+  IDimuboards: [34] # ID imu boards in chainIDimuboards: [34] 
+  is_old_board: false         # If set to true, the connected board is a PSoC3 board instead of a STM32 or PSoC5 board

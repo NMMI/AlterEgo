@@ -1,0 +1,786 @@
+<?xml version="1.0" ?>
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name="default_physics" default="true" type="ode">
+        <max_step_size>0.001</max_step_size>
+        <real_time_update_rate>1000.0</real_time_update_rate>
+        <real_time_factor>1</real_time_factor>
+        <ode>
+            <solver>
+                <type>quick</type>
+                <precon>jacobi</precon>
+                <iters>25</iters>
+                <sor>1</sor>
+            </solver>
+        </ode>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>0</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='unit_box'>
+      <pose>1.6803 -0.604934 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <state world_name='default'>
+      <sim_time>1628 957000000</sim_time>
+      <real_time>118 283668287</real_time>
+      <wall_time>1730804108 75847036</wall_time>
+      <iterations>43014</iterations>
+      <model name='e_cups'>
+        <pose>0.758276 0.295168 0.701692 -0.001644 -0.000755 -0.453642</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.758276 0.295168 0.701692 -0.001644 -0.000755 -0.453642</pose>
+          <velocity>0.006309 0.000107 0.017734 0.039824 -0.137355 -1e-06</velocity>
+          <acceleration>0.501879 0.134168 20.4875 -0.760223 0.280538 -3.13964</acceleration>
+          <wrench>2.3e-05 6e-06 0.000929 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='foam_brick'>
+        <pose>0.870197 0.251406 0.701359 -0.00312 0.006074 -0.784345</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.870197 0.251406 0.701359 -0.00312 0.006074 -0.784345</pose>
+          <velocity>0.001864 0.000726 -0.005046 0.171414 -0.157734 -0.072632</velocity>
+          <acceleration>-1.89508 -8.41761 6.5899 -2.66566 1.29354 2.24453</acceleration>
+          <wrench>-0.00035 -0.001557 0.001219 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='gelatin_box'>
+        <pose>0.907443 0.08547 0.761428 1.61746 -1.3291 -2.88468</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.907443 0.08547 0.761428 1.61746 -1.3291 -2.88468</pose>
+          <velocity>-0.011386 0.007002 0.002237 -0.125214 -0.307977 0.024327</velocity>
+          <acceleration>-7.75031 -4.52604 4.06514 0.050245 0.103027 -2.92064</acceleration>
+          <wrench>-0.001341 -0.000783 0.000703 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='master_chef_can'>
+        <pose>1.03917 0.233239 0.701292 -0.000184 0.000672 2.15939</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>1.03917 0.233239 0.701292 -0.000184 0.000672 2.15939</pose>
+          <velocity>0.006385 0.000122 0.006011 0.046126 0.010248 4e-06</velocity>
+          <acceleration>6.94664 -0.277415 16.8737 1.66386 0.785386 -1.49087</acceleration>
+          <wrench>0.007325 -0.000293 0.017794 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='medium_clamp'>
+        <pose>0.983405 -0.387833 0.700119 -0.028199 -0.082356 2.91784</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.983405 -0.387833 0.700119 -0.028199 -0.082356 2.91784</pose>
+          <velocity>0.006369 9.1e-05 0.004718 -0.101124 0.128782 0.007416</velocity>
+          <acceleration>5.53627 -4.21793 8.3284 -1.32897 0.591468 -0.883886</acceleration>
+          <wrench>0.000124 -9.4e-05 0.000186 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='phillips_screwdriver'>
+        <pose>1.03699 -0.050372 0.693204 0.907884 0.356491 1.02753</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>1.03699 -0.050372 0.693204 0.907884 0.356491 1.02753</pose>
+          <velocity>0.00686 -7.4e-05 0.005524 -0.024719 -0.055175 0.002822</velocity>
+          <acceleration>5.4096 -2.67984 14.8231 -2.77571 -1.52834 -2.86479</acceleration>
+          <wrench>0.000417 -0.000206 0.001141 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='rubiks_cube'>
+        <pose>0.721198 -0.266681 0.701407 -0.000763 0.002028 1.58895</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.721198 -0.266681 0.701407 -0.000763 0.002028 1.58895</pose>
+          <velocity>0.006455 0.000168 -0.001251 -0.144163 0.267294 -3e-06</velocity>
+          <acceleration>11.1971 0.25255 8.55146 0.719698 -0.06114 3.12568</acceleration>
+          <wrench>0.002048 4.6e-05 0.001564 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tennis_ball'>
+        <pose>0.774793 -0.269395 0.731838 0.781924 -0.986716 2.86589</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.774793 -0.269395 0.731838 0.781924 -0.986716 2.86589</pose>
+          <velocity>-0.002804 0.001874 0.010701 -0.051077 -0.124682 -0.091326</velocity>
+          <acceleration>2.82519 -3.34646 13.5716 -2.50689 0.750835 -0.523048</acceleration>
+          <wrench>0.000441 -0.000522 0.002117 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tuna_fish_can'>
+        <pose>0.687812 -0.111401 0.704357 0.000863 -0.00149 -1.61692</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0.687812 -0.111401 0.704357 0.000863 -0.00149 -1.61692</pose>
+          <velocity>0.006156 7.1e-05 0.009077 0.017919 -0.070602 -1.1e-05</velocity>
+          <acceleration>-4.61154 0.673111 21.4009 1.8645 1.00137 -0.179669</acceleration>
+          <wrench>-0.000704 0.000103 0.003266 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_box'>
+        <pose>1.04772 -0.046651 0.35057 0 9e-06 0.020134</pose>
+        <scale>1 1.63449 0.70115</scale>
+        <link name='link'>
+          <pose>1.04772 -0.046651 0.35057 0 9e-06 0.020134</pose>
+          <velocity>0.003192 6.5e-05 -0.004553 -0.000184 0.009104 0</velocity>
+          <acceleration>3.19174 0.064579 -4.55339 2.95759 0.320281 -3.14154</acceleration>
+          <wrench>3.19174 0.064579 -4.55339 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+      <light name='user_spot_light_0'>
+        <pose>0.952629 -0.013723 2.15634 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>-0.560876 -2.73165 1.47246 0 0.405797 1.18497</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <light name='user_spot_light_0' type='spot'>
+      <pose>1.10671 -0.057 1 0 -0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>0 0 -1</direction>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <spot>
+        <inner_angle>0.6</inner_angle>
+        <outer_angle>1</outer_angle>
+        <falloff>1</falloff>
+      </spot>
+    </light>
+    <model name='foam_brick'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>-0.018625 0.016955 0.024644 0 -0 0</pose>
+          <mass>0.000184927</mass>
+          <inertia>
+            <ixx>1.28439e-07</ixx>
+            <ixy>2.00684e-24</ixy>
+            <ixz>2.44733e-23</ixz>
+            <iyy>1.25229e-07</iyy>
+            <iyz>6.67088e-26</iyz>
+            <izz>7.76864e-08</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://061_foam_brick/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://061_foam_brick/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://061_foam_brick/foam_brick.material</uri>
+              <name>foam_brick</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>0.908485 1.08746 0 0 -0 0</pose>
+    </model>
+    <model name='rubiks_cube'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>-0.016219 -0.000485 0.02859 0 -0 0</pose>
+          <mass>0.000182877</mass>
+          <inertia>
+            <ixx>9.85204e-08</ixx>
+            <ixy>2.88143e-24</ixy>
+            <ixz>-4.88126e-24</ixz>
+            <iyy>9.83358e-08</iyy>
+            <iyz>1.74033e-23</iyz>
+            <izz>9.8182e-08</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://077_rubiks_cube/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://077_rubiks_cube/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://077_rubiks_cube/rubiks_cube.material</uri>
+              <name>rubiks_cube</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.33775 0.994828 0 0 -0 0</pose>
+    </model>
+    <model name='medium_clamp'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>0.010827 -0.014904 0.012618 0 -0 0</pose>
+          <mass>2.23887e-05</mass>
+          <inertia>
+            <ixx>1.3188e-08</ixx>
+            <ixy>-1.62439e-25</ixy>
+            <ixz>1.09349e-27</ixz>
+            <iyy>8.6708e-09</iyy>
+            <iyz>4.39401e-25</iyz>
+            <izz>5.80306e-09</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://050_medium_clamp/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://050_medium_clamp/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://050_medium_clamp/medium_clamp.material</uri>
+              <name>medium_clamp</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.32954 1.40766 0 0 -0 0</pose>
+    </model>
+    <model name='phillips_screwdriver'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>0.002663 0.022224 0.016372 0 -0 0</pose>
+          <mass>7.70055e-05</mass>
+          <inertia>
+            <ixx>1.08681e-07</ixx>
+            <ixy>1.0414e-23</ixy>
+            <ixz>7.4119e-25</ixz>
+            <iyy>1.08634e-07</iyy>
+            <iyz>-8.13564e-24</iyz>
+            <izz>8.53822e-09</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://043_phillips_screwdriver/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://043_phillips_screwdriver/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://043_phillips_screwdriver/phillips_screwdriver.material</uri>
+              <name>phillips_screwdriver</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.63124 1.1832 0 0 -0 0</pose>
+    </model>
+    <model name='tuna_fish_can'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>-0.025996 -0.02214 0.01299 0 -0 0</pose>
+          <mass>0.000152619</mass>
+          <inertia>
+            <ixx>1.39413e-07</ixx>
+            <ixy>-8.87929e-24</ixy>
+            <ixz>-3.02286e-24</ixz>
+            <iyy>7.96124e-08</iyy>
+            <iyz>-7.17088e-24</iyz>
+            <izz>7.95177e-08</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://007_tuna_fish_can/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://007_tuna_fish_can/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://007_tuna_fish_can/tuna_fish_can.material</uri>
+              <name>tuna_fish_can</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.02896 1.39906 0 0 -0 0</pose>
+    </model>
+    <model name='gelatin_box'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>-0.022676 -0.00786 0.013878 0 -0 0</pose>
+          <mass>0.000173056</mass>
+          <inertia>
+            <ixx>1.80881e-07</ixx>
+            <ixy>1.46028e-25</ixy>
+            <ixz>-1.58487e-24</ixz>
+            <iyy>1.18802e-07</iyy>
+            <iyz>-1.53156e-23</iyz>
+            <izz>8.42204e-08</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://009_gelatin_box/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://009_gelatin_box/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://009_gelatin_box/gelatin_box.material</uri>
+              <name>gelatin_box</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.14922 1.1183 0 0 -0 0</pose>
+    </model>
+    <model name='master_chef_can'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>-0.017071 -0.009763 0.070584 0 -0 0</pose>
+          <mass>0.00105453</mass>
+          <inertia>
+            <ixx>2.26612e-06</ixx>
+            <ixy>-1.18913e-22</ixy>
+            <ixz>5.3124e-23</ixz>
+            <iyy>2.26109e-06</iyy>
+            <iyz>3.55553e-22</iyz>
+            <izz>1.32075e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://002_master_chef_can/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://002_master_chef_can/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://002_master_chef_can/master_chef_can.material</uri>
+              <name>master_chef_can</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.19243 1.56407 0 0 -0 0</pose>
+    </model>
+    <model name='e_cups'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>-0.019152 -0.07368 0.030396 0 -0 0</pose>
+          <mass>4.53243e-05</mass>
+          <inertia>
+            <ixx>4.15994e-08</ixx>
+            <ixy>-1.25174e-24</ixy>
+            <ixz>-8.62849e-25</ixz>
+            <iyy>3.83965e-08</iyy>
+            <iyz>-2.63884e-25</iyz>
+            <izz>3.71999e-08</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://065-e_cups/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://065-e_cups/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://065-e_cups/e_cups.material</uri>
+              <name>e_cups</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.10274 -1.36123 0 0 -0 0</pose>
+    </model>
+    <model name='tennis_ball'>
+      <static>0</static>
+      <link name='link'>
+        <inertial>
+          <pose>0.008233 -0.044192 0.032887 0 -0 0</pose>
+          <mass>0.000155968</mass>
+          <inertia>
+            <ixx>6.98013e-08</ixx>
+            <ixy>6.50544e-24</ixy>
+            <ixz>3.33428e-24</ixz>
+            <iyy>6.951e-08</iyy>
+            <iyz>-2.04659e-24</iyz>
+            <izz>6.94265e-08</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://056_tennis_ball/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://056_tennis_ball/google_16k/textured.obj</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://056_tennis_ball/tennis_ball.material</uri>
+              <name>tennis_ball</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>1.19577 1.35219 0 0 -0 0</pose>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<launch>
+
+
+  <arg name="AlterEgoVersion" default="3" />
+  <group ns="$(env ROBOT_NAME)">
+    <arg name="yamlVersion" default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/general_unity.yaml"/>
+    <rosparam command="load" file="$(arg yamlVersion)"/>
+    <arg name="yamlFile" default="$(find alterego_robot)/config/pilot.yaml"/>
+    <rosparam command="load" file="$(arg yamlFile)"/>
+    <node pkg="pilot_bridge" name="inbound_data" type="inbound_data_unity" output="screen"/>
+    
+    <include file="$(find ros_tcp_endpoint)/launch/endpoint.launch">
+        <arg name="tcp_ip" value="$(env ROS_IP)"/>
+    </include>
+
+    <node pkg="pilot_bridge" name="DiscoveryRobot" type="DiscoveryRobotResponse.py" output="screen" />
+      
+
+  </group>  
+
+</launch>

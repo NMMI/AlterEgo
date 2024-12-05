@@ -1,0 +1,14 @@
+# useless database #
+###################
+upper_body/optoforce-ros-publisher/src/forceEstimation.cpp
+
+
+/utils/rbdl/build
+
+alterego_robot/.vscode
+
+.vscode
+
+alterego_robot/config/robot_configuration.yaml
+
+alterego_robot/config/SystemCheck.txt

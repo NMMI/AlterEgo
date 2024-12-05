@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="empty">
+    
+    <scene>
+          <ambient>0.4 0.4 0.4 1</ambient>
+          <background>0.7 0.7 0.7 1</background>
+          <shadows>false</shadows>
+    </scene>
+
+
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    
+
+    
+
+      <!-- Focus camera on a desired location -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>2.36646 1.02622 1.90107 0 0.468 -2.88382</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <!-- Faster solver  -->
+    <!-- with this new parameters the real time factor is almost 0.60 -->
+        <physics name="default_physics" default="true" type="ode">
+            <max_step_size>0.001</max_step_size>
+            <real_time_update_rate>1000.0</real_time_update_rate>
+            <real_time_factor>1</real_time_factor>
+            <ode>
+                <solver>
+                    <type>quick</type>
+                    <precon>jacobi</precon>
+                    <iters>25</iters>
+                    <sor>1</sor>
+                </solver>
+            </ode>
+        </physics>
+
+  </world>
+
+</sdf>

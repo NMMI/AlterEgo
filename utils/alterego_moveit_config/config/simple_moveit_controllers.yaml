@@ -1,0 +1,12 @@
+controller_list:
+  - name: right_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - base_link_to_right_shoulder_flange
+      - right_shoulder_cube_to_right_arm_flange
+      - right_arm_cube_to_right_elbow_flange_sensor
+      - right_elbow_cube_to_right_forearm_flange
+      - right_forearm_cube_to_right_wrist_flange
+      - right_wrist_to_right_hand

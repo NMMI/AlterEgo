@@ -1,6 +1,7 @@
 PROJECT (RBDLEXAMPLE CXX)
 
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+cmake_minimum_required(VERSION 3.10)
+
 
 # We need to add the project source path to the CMake module path so that
 # the FindRBDL.cmake script can be found.

@@ -1,0 +1,75 @@
+right:
+  ## Namespace of the robot
+  namespace: "right" # default = "toBEassigend"
+
+  ## Sample time
+  T_sample: 0.01
+
+  ## Number of qbAdvance Motors
+  joints_number: 7
+
+  ## Joints name
+  joints_name:
+    - "neck_to_neck_cube"
+    - "base_link_to_right_shoulder_flange"
+    - "right_shoulder_cube_to_right_arm_flange"
+    - "right_arm_cube_to_right_elbow_flange_sensor"
+    - "right_elbow_cube_to_right_forearm_flange"
+    - "right_forearm_cube_to_right_wrist_flange"
+    - "right_wrist_to_right_hand"
+
+  ref1_topic_name:
+    - "/reference_1"
+    - "/link_command"
+    - "/reference_1"
+    - "/reference_1"
+    - "/reference_1"
+    - "/reference_1"
+    - "/reference_1"
+
+  ref2_topic_name:
+    - "/reference_2"
+    - "/reference_2"
+    - "/reference_2"
+    - "/reference_2"
+    - "/reference_2"
+    - "/reference_2"
+    - "/reference_2"
+
+left:
+  ## Namespace of the robot
+  namespace: "left" # default = "toBEassigend"
+
+  ## Sample time
+  T_sample: 0.01
+
+  ## Number of qbAdvance Motors
+  joints_number: 7
+
+  ## Joints name
+  joints_name:
+    - "base_link_to_neck"
+    - "base_link_to_left_shoulder_flange"
+    - "left_shoulder_cube_to_left_arm_flange"
+    - "left_arm_cube_to_left_elbow_flange_sensor"
+    - "left_elbow_cube_to_left_forearm_flange"
+    - "left_forearm_cube_to_left_wrist_flange"
+    - "left_wrist_to_left_hand"
+      
+  ref1_topic_name:
+    - "/reference_1"
+    - "/link_command"
+    - "/reference_1"
+    - "/reference_1"
+    - "/reference_1"
+    - "/reference_1"
+    - "/reference_1"
+
+  ref2_topic_name:
+    - "/reference_2"
+    - "/reference_2"
+    - "/reference_2"
+    - "/reference_2"
+    - "/reference_2"
+    - "/reference_2"
+    - "/reference_2"

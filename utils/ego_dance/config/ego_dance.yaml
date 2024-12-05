@@ -1,0 +1,27 @@
+gain_controllers:
+  
+ #Controller 1
+
+  K: 0.07
+  Kb: 0.5
+  Kv: 0.06
+
+ #Controller 2
+
+  lambda_1: 1.5  #linear
+  lambda_2: 3  #angular
+  lambda_3: 1.5  #linear
+  lambda_4: 3  #angular
+  lambda_k: 2.7 #angular
+
+  # lambda_1: 2.5
+  # lambda_2: 4.3
+  # lambda_3: 2.5
+  # lambda_4: 4.3
+  # k: 2.7
+
+  #Controller 3
+
+  lambda_5: 0.5
+  lambda_6: 0.1667
+  k1: 0.00333

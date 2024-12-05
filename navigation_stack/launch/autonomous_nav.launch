@@ -1,0 +1,127 @@
+<launch>
+    <!-- Versione di AlterEgo -->
+    <arg name="AlterEgoVersion" default="3" />
+
+    <!-- Utilizzare il tempo di simulazione -->
+    <arg name="use_sim_time" default="false" />
+
+    <!-- Posizione attuale del robot -->
+    <arg name="location" default="eurobin" />
+
+    <!-- Abilitare la fotocamera Realsense -->
+    <arg name="realsense" default="true" />
+
+    <!-- Unire i dati del laser -->
+    <arg name="merge_laser" default="false" />
+
+    <!-- Percorso del file di configurazione AMCL -->
+    <arg name="yamlAmcl" default="$(find navigation_stack)/config/move_base_config/amcl.yaml" />
+
+    <!-- Percorso del file URDF -->
+    <arg name="urdf_dir" value="$(find alterego_robot)/alterego_description/urdf/ego_robot_gazebo_v$(arg AlterEgoVersion).urdf.xacro"/>
+
+    <!-- Percorso del file della mappa -->
+    <arg name="map_dir" value="$(find navigation_stack)/config/$(arg location)_config/maps/eurobin_arena_2_clean_new.yaml" />
+
+    <!-- Descrizione del robot -->
+    <param name="robot_description" command="$(find xacro)/xacro '$(arg urdf_dir)' ENABLE_CAMERA:=false ENABLE_LASER:=true ENABLE_REALSENSE:=false" />
+
+    <!-- Nodo per pubblicare lo stato del robot -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" unless="$(arg use_sim_time)" />
+    
+    <group ns="$(env ROBOT_NAME)"> 
+
+        <group if="$(arg realsense)">
+
+            <!-- Realsense node -->
+            <include file="$(find realsense2_camera)/launch/rs_camera.launch" unless="$(arg use_sim_time)">
+                <arg name="align_depth" value="true" />
+                <arg name="enable_pointcloud" value="true" />
+            </include>
+
+            <!-- Node for converting the pointcloud in a laserscan for obastacle avoidance -->
+            <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node"
+                name="pointcloud_to_laserscan">
+                <param name="max_height" value="1" />
+                <param name="min_height" value="0.3" />
+                <param name="target_frame" value="scan" />
+                <remap from="cloud_in" to="camera/depth/color/points" />
+                <remap from="scan" to="scan_realsense" />
+            </node>
+        </group>
+
+        <!--- Run lMerge Laser-->
+        <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen" if="$(arg merge_laser)">
+            <param name="destination_frame" value="scan"/>
+            <param name="cloud_destination_topic" value="/merged_cloud"/>
+            <param name="scan_destination_topic" value="scan_merged"/>
+            <param name="laserscan_topics" value ="/$(env ROBOT_NAME)/scan /$(env ROBOT_NAME)/scan_realsense" /> <!-- LIST OF THE LASER SCAN TOPICS TO SUBSCRIBE -->
+            <param name="angle_min" value="-2.0"/>
+            <param name="angle_max" value="2.0"/>
+            <param name="angle_increment" value="0.0058"/>
+            <param name="scan_time" value="0.004"/>
+            <param name="range_min" value="0.20"/>
+            <param name="range_max" value="50.0"/>
+        </node>
+
+        <!--- Run lidar node -->
+        <node name="lidar"          pkg="rplidar_ros"  type="rplidarNode" output="screen" unless="$(arg use_sim_time)"> <!-- This file will be loaded only on the real robot because in simulation the lidar is a plugin-->
+            <param name="serial_baudrate"     type="int"    value="115200"/>
+            <param name="frame_id"            type="string" value="scan"/>
+            <param name="inverted"            type="bool"   value="false"/>
+            <param name="angle_compensate"    type="bool"   value="true"/>
+        </node>
+
+        <!--- Run 2D AMCL -->
+        <node pkg="amcl" type="amcl" name="amcl" output="screen">
+            <rosparam command="load" file="$(arg yamlAmcl)"/>
+            <remap from="initialpose" to="/initialpose"/> 
+        </node>
+
+        <!--- LOAD Pre built map -->
+        <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_dir)"/>
+
+        <!-- MOVE BASE Node -->
+        <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+            
+            <!-- Configurazione del pianificatore locale (TEB Local Planner) -->
+            <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+            <!-- Configurazione del pianificatore globale -->
+            <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+            <!-- <param name="base_global_planner" value="navfn/NavfnROS" /> -->
+            
+            <rosparam file="$(find navigation_stack)/config/move_base_config/costmap_common_params.yaml" command="load"
+                ns="global_costmap" />
+            <rosparam file="$(find navigation_stack)/config/move_base_config/costmap_common_params.yaml" command="load"
+                ns="local_costmap" />
+            <rosparam file="$(find navigation_stack)/config/move_base_config/local_costmap_params.yaml" command="load" />
+            <rosparam file="$(find navigation_stack)/config/move_base_config/global_costmap_params.yaml" command="load" />
+            <rosparam file="$(find navigation_stack)/config/move_base_config/base_local_planner_params.yaml" command="load" unless="$(arg use_sim_time)"/> <!-- This file will be loaded only on the real robot because in simulation the params are different-->
+            <rosparam file="$(find navigation_stack)/config/move_base_config/base_local_planner_params_sim.yaml" command="load" if="$(arg use_sim_time)"/> <!-- This file will be loaded only on the in simulation when the use_sim_time is true-->
+            <!-- <rosparam file="$(find navigation_stack)/config/move_base_config/move_base_params.yaml" command="load" /> -->
+            <rosparam file="$(find navigation_stack)/config/move_base_config/global_planner_params.yaml" command="load" />
+            
+
+
+            <param name="controller_frequency" value="5.0" />
+            <remap from="/cmd_vel" to="cmd_vel" />
+            <remap from="/odom" to="odom" />
+            <remap from="move_base_simple/goal" to="/move_base_simple/goal" />  
+
+        </node>
+
+        <node pkg="navigation_stack" type="nav2points_service.py" name="navigation" output="screen">
+            <rosparam file="$(find navigation_stack)/config/$(arg location)_config/points/points.yaml" command="load"/>
+            <rosparam file="$(find navigation_stack)/config/$(arg location)_config/points/keypoints.yaml" command="load"/>
+        </node>
+
+        <!-- <node pkg="navigation_stack" type="initialpose.py" name="initialpose" output="screen"/> -->
+        <node pkg="navigation_stack" type="where_are_you_service.py" name="send_key_points" output="screen"/>
+
+        <node pkg="visualize_robot" name="visualize_robot" type="visualize_robot_node" output="screen" unless="$(arg use_sim_time)"/>                               <!-- This file will be loaded only on the real robot because in simulation it has been already loaded-->
+
+
+    </group>
+
+
+</launch>

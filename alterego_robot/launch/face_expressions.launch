@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<group ns="$(env ROBOT_NAME)">
+		<!-- USB PORT -->
+		<arg name="yamlRobotCONFIG" default="$(find alterego_robot)/config/robot_configuration.yaml" />
+		<rosparam command="load" file="$(arg yamlRobotCONFIG)" />
+		<!-- FACE EXPRESSIONS -->
+		<arg name="AlterEgoVersion" default="3" />
+		<arg name="yamlFile"
+			default="$(find alterego_robot)/config/face_expressions.yaml" />
+		<rosparam command="load" file="$(arg yamlFile)" />
+
+		<node pkg="face_expressions" name="face_expressions" type="face_expressions" output="screen" />
+	</group>
+</launch>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- Versione di AlterEgo -->
+  <arg name="AlterEgoVersion" default="3"/>
+
+  <!-- Utilizzare il tempo di simulazione -->
+  <arg name="use_sim_time" default="false"/>
+
+  <!-- Abilitare la fotocamera Realsense -->
+  <arg name="realsense" default="true"/>
+
+  <!-- Percorso del file URDF -->
+  <arg name="urdf_dir" value="$(find alterego_robot)/alterego_description/urdf/ego_robot_gazebo_v$(arg AlterEgoVersion).urdf.xacro"/>
+
+  <!-- Descrizione del robot -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(arg urdf_dir)' ENABLE_CAMERA:=false ENABLE_LASER:=false ENABLE_REALSENSE:=false"/>
+
+  <!-- Nodo per pubblicare lo stato del robot -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" unless="$(arg use_sim_time)"/>
+
+  <group ns="$(env ROBOT_NAME)">
+    <!-- Convertire la pointcloud in un laserscan -->
+
+    <!-- 2D SLAM basato su laserscan -->
+    <node name="lidar" pkg="rplidar_ros" type="rplidarNode" output="screen" unless="$(arg use_sim_time)">
+      <param name="serial_baudrate" type="int" value="115200"/>
+      <param name="frame_id" type="string" value="scan"/>
+      <param name="inverted" type="bool" value="false"/>
+      <param name="angle_compensate" type="bool" value="true"/>
+    </node>
+
+    <!-- Include il file di lancio per Hector Mapping -->
+    <include file="$(find hector_mapping)/launch/mapping_default.launch">
+      <arg name="base_frame" default="base_link"/>
+      <arg name="odom_frame" default="odom"/>
+    </include>
+
+    <group if="$(arg realsense)">
+      <!-- 3D Mapping utilizzando la pointcloud - in questo modo la mappa considera anche i mobili -->
+      <include file="$(find realsense2_camera)/launch/rs_camera.launch" unless="$(arg use_sim_time)">
+        <arg name="align_depth" value="true"/>
+        <arg name="enable_pointcloud" value="true"/>
+      </include>
+
+      <!-- Nodo per il server Octomap -->
+      <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+        <param name="resolution" value="0.05"/>
+        <param name="frame_id" type="string" value="map"/>
+        <param name="base_frame_id" value="base_link"/>
+        <param name="sensor_model/max_range" value="2.5"/>
+        <param name="pointcloud_min_z" value="0.3"/>
+        <param name="pointcloud_max_z" value="1.5"/>
+        <remap from="cloud_in" to="camera/depth/color/points"/>
+      </node>
+
+      <!-- Nodo per convertire la pointcloud in laserscan -->
+      <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+        <param name="max_height" value="1.5"/>
+        <param name="min_height" value="0.1"/>
+        <param name="target_frame" value="scan"/>
+        <remap from="cloud_in" to="camera/depth/color/points"/>
+        <remap from="scan" to="camera/scan"/>
+      </node>
+    </group>
+
+    <!-- Nodo per visualizzare il robot -->
+    <node pkg="visualize_robot" name="visualize_robot" type="visualize_robot_node" output="screen" unless="$(arg use_sim_time)"/>
+  </group>
+
+</launch>

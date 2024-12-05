@@ -1,0 +1,30 @@
+right:
+  port: /dev/ttyUSB2
+
+left:
+  port: /dev/ttyUSB3
+
+wheels:
+  port: /dev/ttyUSB1
+  wheel_thr_L: 24.5
+  wheel_thr_R: 24.5
+  standing_pitch_offset:    0.032 #0.028 # Pitch measured on /RPY topic when the real robot is standing and still, for real: tested on Goldenego
+
+imu:
+  port: /dev/ttyUSB0
+
+face_expressions:
+  port: /dev/ttyUSB4
+  has_face_expression:  true    
+  has_temperature:      false
+
+
+lidar:
+  serial_port: /dev/ttyUSB5
+  
+
+
+has_kickstand:        true
+has_fallback:         false
+has_powerboost:         false
+has_control_current:   false

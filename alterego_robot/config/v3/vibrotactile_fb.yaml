@@ -1,0 +1,13 @@
+left:
+  acc_hand_topic  : "acc_hand"
+  pub_act_fb      : true
+  act_fb_topic    : "act"
+  score_thr       : 20
+  relevance_comp_v_weight   : 0.1
+
+right:
+  acc_hand_topic  : "acc_hand"
+  pub_act_fb      : true
+  act_fb_topic    : "act"
+  score_thr       : 20
+  relevance_comp_v_weight   : 0.1

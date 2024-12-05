@@ -1,0 +1,41 @@
+force_estimation:
+  body_mass: 27.6
+  cube_mass: 0.500
+  cube_wrist_mass: 0.713
+  cube_m_shoulder: 0.8
+  cube_new_mass: 0.650
+  hand_mass: 0.5
+  wheel_mass: 1
+  a_sensor: 0.0215
+  b_sensor: 0.028
+  c_sensor: 0.055
+  weight_w_size: 15
+  body_cm: [0, 0, 0.38]
+
+  T_b2t: [1, 0, 0, 0, 0, 1 ,0, 0, 0, 0, 1, 0.95, 0, 0, 0, 1]
+  T_t2s_L: [0.0, -0.1736, 0.9848, 0.008, 0.9848, -0.1710,-0.0301, 0.108, 0.1736, 0.9698, 0.1710, 0.009, 0, 0, 0, 1]
+  T_t2s_R: [0.0,-0.1736, -0.9848, 0.008, 0.9848, 0.1710, -0.0301, -0.108, 0.1736, -0.9698, 0.1710, 0.009, 0, 0, 0, 1]
+  T_init_R: [1, 0, 0, 0.0, 0, 0, 1, 0, 0, -1, 0, 0]
+
+  DH_Xtr_L: [0, 0, 0, 0, -0.012, -0.06]
+  DH_Xrot_L: [-1.57, -1.57, -1.57, 1.57, -1.57, 0]
+  DH_Ztr_L: [0.1528, 0, 0.213, 0, 0.231, 0]
+  DH_Zrot_L: [0, 1.57, 1.57, 0, 1.57, 1.57]
+
+  DH_Xtr_R: [0, 0, 0, 0, -0.012, 0.06]
+  DH_Xrot_R: [-1.57, 1.57, -1.57, 1.57, 1.57, 0]
+  # DH_Ztr_R: [0.110, 0, 0.213, 0, 0.231, 0]
+  DH_Ztr_R: [0.1528, 0, 0.213, 0, 0.231, 0]
+  DH_Zrot_R: [0, 1.57, 1.57, 0, 1.57, 1.57]
+
+  armL_topic_name: "/left/meas_arm_shaft"
+  armR_topic_name: "/right/meas_arm_shaft"
+  handL_topic_name: "/left/ref_hand"
+  handR_topic_name: "/right/ref_hand"
+  weightL_topic_name: "/left/weight"
+  weightR_topic_name: "/right/weight"
+  pitch_corr_topic_name: "/offset_phi"
+  imu_grav_topic_name: "/RPY"
+  left_weight_offset: 0.00
+  right_weight_offset: 0.00
+  debug: false # typical estimation topic msg : [lxSensor,A_l_ext,A_l,bias,lx_m,lx_bias,    rxSensor,A_r_ext,A_r,rx_m,rx_bias,      gravity_world]

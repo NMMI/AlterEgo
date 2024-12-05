@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+
+  <!-- GENERAL PARAM  -->
+  <arg name="paused" default="true" />
+  <arg name="use_sim_time" default="true" />
+  <arg name="gui" default="true" />
+  <arg name="headless" default="false" />
+  <arg name="debug" default="false" />
+  <arg name="recording" default="false" />
+  <arg name="verbose" default="false" />
+  <arg name="version" default="3" />
+  <arg name="nav" default="false" />
+  <arg name="use_rviz" default="false" />
+
+  <!-- VERSION OF THE ROBOT, THIS VALUE WILL CHANGE THE URDF AND THE LQR GAINS -->
+  <arg name="AlterEgoVersion" value="$(arg version)" />
+  <param name="use_sim_time" value="$(arg use_sim_time)"/>
+  <arg name="urdf_dir"
+    value="$(find alterego_robot)/alterego_description/urdf/ego_robot_gazebo_v$(arg version).urdf.xacro" />
+  <arg name="use_visualize" default="true" />
+  <arg name="use_pilot" default="true" />
+  <arg name="use_marker" default="false" />
+  <arg name="world_name"
+    value="$(find alterego_robot)/alterego_description/worlds/traj_planning.world" />
+  <!-- **************GAZEBO ************** -->
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" pass_all_args="true" />
+
+  <include file="$(find alterego_robot)/launch_sim/ego_spawn.launch" pass_all_args="true" />
+
+  <include file="$(find alterego_robot)/launch_sim/alterego_stack.launch" pass_all_args="true" />
+
+</launch>

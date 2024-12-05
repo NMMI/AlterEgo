@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="AlterEgoVersion" default="3" />
+
+  <!-- ARG -->
+  <arg name="yamlArms" default="$(find alterego_robot)/config/body_movement.yaml" />
+  <arg name="yamlHead" default="$(find alterego_robot)/config/head.yaml" />
+  <arg name="yamlPitch"
+    default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/pitch_correction.yaml" />
+  <arg name="yamlVersion"
+    default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/general.yaml" />
+  <arg name="folder_path_arg"
+    default="$(find alterego_robot)/alterego_description/urdf/ego_robot_gazebo_v$(arg AlterEgoVersion).urdf" />
+
+
+  <!-- PARAM -->
+  <rosparam command="load" file="$(arg yamlArms)" />
+  <rosparam command="load" file="$(arg yamlHead)" />
+  <rosparam command="load" file="$(arg yamlPitch)" />
+  <rosparam command="load" file="$(arg yamlVersion)" />
+
+
+  <!-- ARMS -->  
+  <group ns="right">
+    <param name="folderPath" value="$(arg folder_path_arg)" />
+    <!-- <node pkg="arms_head_kin" name="arm_inv_kin_main" type="arm_inv_kin_main"
+      output="screen" /> -->
+    <node pkg="arms_inv_dyn" name="arm_inv_dyn" type="arm_inv_dyn" output="screen" />
+  </group>
+
+  <group ns="left">
+    <param name="folderPath" value="$(arg folder_path_arg)" />
+    <!-- <node pkg="arms_head_kin" name="arm_inv_kin_main" type="arm_inv_kin_main" output="screen" /> -->
+     <node pkg="arms_inv_dyn" name="arm_inv_dyn" type="arm_inv_dyn" output="screen" />
+  </group>
+
+
+  <!-- HEAD -->
+  <group ns="head">
+    <node pkg="arms_head_kin" name="head_inv_kin" type="head_inv_kin" output="screen" />
+  </group>
+
+  <!-- PITCH CORR -->
+  <node pkg="arms_head_kin" name="pitch_correction" type="pitch_correction" output="screen" />
+
+
+</launch>

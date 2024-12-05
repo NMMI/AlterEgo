@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  <group ns="$(env ROBOT_NAME)">
+    <arg name="degree" default="120"/>
+    <rosparam command="load" file="$(find ego_dance)/config/ego_dance.yaml"/>
+    
+    <arg name="yamlFile" default="$(find alterego_robot)/config/v2/follow_me.yaml"/>
+    <rosparam command="load" file="$(arg yamlFile)"/>
+
+    <!-- ARMS -->
+    <node name="ego_dance" pkg="ego_dance" type="main_ego_dance_node" output="screen">
+      <param name="degree" value="$(arg degree)"/>
+    </node>
+  </group>
+
+</launch>

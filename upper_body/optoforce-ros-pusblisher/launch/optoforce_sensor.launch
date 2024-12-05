@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="namespace" default="/" />
+  <arg name="sens_params_file" default="hex-70-ce-2000n-ice044.yaml" />
+  <arg name="AlterEgoVersion" default="3" />
+
+
+  <!-- PITCH CORR -->
+  <arg name="yamlPitch"
+    default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/force_estimation.yaml" />
+  <rosparam command="load" file="$(arg yamlPitch)" />
+  <group ns="$(arg namespace)">
+
+    <rosparam file="$(find optoforce_sensor)/cfg/$(arg sens_params_file)" command="load" />
+
+    <node name="force_estimation" pkg="optoforce_sensor" type="force_estimation" output="screen" />
+
+  </group>
+
+
+</launch>

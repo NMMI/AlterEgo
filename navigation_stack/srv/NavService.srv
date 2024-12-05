@@ -1,0 +1,4 @@
+string location
+string sub_location
+---
+bool success

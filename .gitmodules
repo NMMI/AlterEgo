@@ -1,11 +1,16 @@
-[submodule "ROS-Gazebo-compliant-actuators-plugin"]
-	path = ROS-Gazebo-compliant-actuators-plugin
-	url = https://github.com/NMMI/ROS-Gazebo-compliant-actuators-plugin.git
+[submodule "utils/realsense/realsense_gazebo_plugin"]
+	path = utils/realsense/realsense_gazebo_plugin
+	url = https://github.com/issaiass/realsense_gazebo_plugin.git
+	
+[submodule "utils/multimaster_fkie"]
+	path = utils/multimaster_fkie
+	url = https://github.com/fkie/multimaster_fkie.git
 [submodule "SoftHand-Plugin"]
-	path = softhand
+	path = SoftHand-Plugin
 	url = https://github.com/NMMI/SoftHand-Plugin.git
-[submodule "utils/rbdl"]
-	path = utils/rbdl
-	url = https://github.com/CentroEPiaggio/rbdl.git
-	branch = floating_base
-	ignore = dirty
+[submodule "navigation_stack"]
+	path = navigation_stack
+	url = https://github.com/IIT-SoftBots/navigation_stack.git
+[submodule "ROS-TCP-Endpoint"]
+	path = ROS-TCP-Endpoint
+	url = https://github.com/Unity-Technologies/ROS-TCP-Endpoint.git

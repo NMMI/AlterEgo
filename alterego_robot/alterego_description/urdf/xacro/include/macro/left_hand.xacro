@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="macros_cube">
+
+<xacro:macro name="left_hand"  params="name parent *origin *limit type side operation_mode">
+    
+
+	<!-- JOINT -->
+	<joint name="${parent}_to_${name}" type="${type}">
+			<axis xyz="0 0 1" />
+			<xacro:insert_block name="origin" />
+			<xacro:insert_block name="limit" />
+			<parent link="${parent}" />
+			<child link="${name}" />
+	</joint>
+
+
+		<!-- LINK -->
+    <link name="${name}">
+    </link>
+
+	
+	<!-- MOVEIT JOINT -->
+	<joint name="${name}_moveit_joint" type="revolute">
+		<parent link="${name}"/>  <!-- Link genitore: può essere il polso o la base della mano -->
+		<child link="${name}_moveit_link"/>     <!-- Link figlio: rappresenta la mano -->
+		<origin xyz="0 0 0" rpy="0 0 0"/>  <!-- Modifica l'origine in base alla tua configurazione -->
+		<axis xyz="0 0 1"/>  <!-- Asse di rotazione: può essere z o un altro asse, a seconda della mano -->
+		<limit effort="10.0" velocity="1.0" lower="0.0" upper="1.0"/>  <!-- Definisci i limiti da 0 a 1 -->
+	</joint>
+	<!-- MOVEIT LINK -->
+    <link name="${name}_moveit_link">
+    </link>
+
+	<joint name="${name}_to_${name}__ik" type="fixed">
+		<origin xyz="0 0.088 0.032" rpy="0 0 -1.57" />
+		<parent link="${name}" />
+		<child link="${name}_ik" />
+	</joint>
+	<link name="${name}_ik">
+	</link>
+
+
+		<!-- GAZEBO REFERENCE -->
+	<gazebo reference="${name}">
+		<material>Gazebo/Grey</material>
+		<selfCollide>false</selfCollide>
+  	</gazebo>
+
+
+	<!-- GAZEBO REFERENCE FOR COMPLIANT PLUGIN-->
+	<xacro:if value="${type == 'revolute'}">
+		<xacro:compliant_plugin name="${name}" parent="${parent}" side="${side}" operation_mode="${operation_mode}"/>
+	</xacro:if>
+</xacro:macro>
+
+</robot>

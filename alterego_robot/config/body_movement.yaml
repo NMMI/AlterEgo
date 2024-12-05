@@ -1,0 +1,60 @@
+left:
+  shoulder_l:             0.26
+  cube_mass:              0.500
+  cube_wrist_mass:        0.713
+  cube_new_mass:          0.750
+  hand_mass:              0.75
+  # a_mot: [0, 11, 11, 11, 11, 11]  #one will find this value are uploaded by general.yaml for each version
+  # k_mot: [0, 0.02, 0.02, 0.02, 0.02, 0.02]
+  pose_ref_topic:         "hand_pos"
+  stiff_ref_topic:        "stiff_ref_pose"
+  hand_cl_topic:          "ind"
+  phantom_arm_topic:      "phantom_left/ego_arm_left_phantom/control/joint_states"
+  kin_des_jnt_topic:      "kin_des_jnt_topic"
+  ref_eq_arm_topic:       "ref_cubes_eq"
+  ref_pr_arm_topic:       "ref_cubes_preset"
+  ref_hand_topic:         "ref_hand"
+  cubes_m1_topic:         "meas_arm_m1"
+  cubes_m2_topic:         "meas_arm_m2"
+  cubes_shaft_topic:      "meas_arm_shaft"
+  ready_pilot_topic:      "ready_for_pilot"
+  ISE_ref_topic:          "ISE_ref_topic"
+  ISE_topic:              "ISE_topic"
+  Residual_topic:         "Residual_topic"
+  stiff_ref_topic_new:    "stiff_ref_topic_new"
+  k_hat_topic:            "k_hat_topic"
+  q_dot_meas_topic:       "q_dot_meas_topic"
+  theta_s_topic:          "theta_s_topic"
+  tau_computed_topic:     "tau_computed_topic"
+  active_back_pos:        1
+
+right:
+  shoulder_l:             -0.26
+  cube_mass:              0.500
+  cube_wrist_mass:        0.713
+  cube_new_mass:          0.750
+  hand_mass:              0.75
+  # a_mot: [0, 11, 11, 11, 11, 11]
+  # k_mot: [0, 0.02, 0.02, 0.02, 0.02, 0.02]
+  pose_ref_topic:         "hand_pos"
+  stiff_ref_topic:        "stiff_ref_pose"
+  hand_cl_topic:          "ind"
+  kin_des_jnt_topic:      "kin_des_jnt_topic"
+  phantom_arm_topic:      "phantom_left/ego_arm_left_phantom/control/joint_states"
+  ref_eq_arm_topic:       "ref_cubes_eq"
+  ref_pr_arm_topic:       "ref_cubes_preset"
+  ref_hand_topic:         "ref_hand"
+  cubes_m1_topic:         "meas_arm_m1"
+  cubes_m2_topic:         "meas_arm_m2"
+  cubes_shaft_topic:      "meas_arm_shaft"
+  ready_pilot_topic:      "ready_for_pilot"
+  ISE_ref_topic:          "ISE_ref_topic"
+  ISE_topic:              "ISE_topic"
+  Residual_topic:         "Residual_topic"
+  stiff_ref_topic_new:    "stiff_ref_topic_new"
+  k_hat_topic:            "k_hat_topic"
+  q_dot_meas_topic:       "q_dot_meas_topic"
+  theta_s_topic:          "theta_s_topic"
+  tau_computed_topic:     "tau_computed_topic"
+  active_back_pos:        1
+

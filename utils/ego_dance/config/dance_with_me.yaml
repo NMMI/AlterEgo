@@ -1,0 +1,12 @@
+gain_controllers:
+  follow_me:
+    lambda_1: 7.0 #linear
+    lambda_2: 0.7 #angular
+  
+  dance:
+    lambda_1: 1.5  #linear
+    lambda_2: 1.5  #angular
+    lambda_3: 1.5  #linear
+    lambda_4: 1.5  #angular
+  
+  

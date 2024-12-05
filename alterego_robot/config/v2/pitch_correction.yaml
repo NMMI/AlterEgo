@@ -1,0 +1,29 @@
+body_mass: 18
+cube_mass: 0.5
+cube_wrist_mass: 0.750
+cube_m_shoulder: 0.8
+cube_addon_mass: 0.650
+hand_mass: 0.5
+wheel_mass: 1
+
+body_cm: [0, 0, 0.26]
+
+T_b2t: [1, 0, 0, 0, 0, 1 ,0, 0, 0, 0, 1, 0.65, 0, 0, 0, 1]
+T_t2s_L: [0, 0, 1, 0, 1, 0 ,0, 0.11, 0, 1, 0, 0, 0, 0, 0, 1]
+T_t2s_R: [0, 0, -1, 0, 1, 0 ,0, -0.11, 0, -1, 0, 0, 0, 0, 0, 1]
+
+DH_Xtr_L: [0, 0, 0, 0, 0]
+DH_Xrot_L: [-1.57, -1.57, -1.57, 1.57, 0]
+DH_Ztr_L: [0.084, 0, 0.168, 0, 0.18]
+DH_Zrot_L: [0, 1.57, 1.57, 0, 3.14]
+
+DH_Xtr_R: [0, 0, 0, 0, 0]
+DH_Xrot_R: [-1.57, 1.57, -1.57, 1.57, 0]
+DH_Ztr_R: [0.084, 0, 0.168, 0, 0.18]
+DH_Zrot_R: [0, 1.57, 1.57, 0, 3.14]
+
+armL_topic_name: "left/meas_arm_shaft"
+armR_topic_name: "right/meas_arm_shaft"
+pitch_corr_topic_name: "offset_phi"
+weightL_topic_name: "left/weight"
+weightR_topic_name: "right/weight"

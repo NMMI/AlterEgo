@@ -1,0 +1,10 @@
+#this param list is loaded only in a simulated environment, it should not be edited easily
+
+SimulatedEgo:     true
+has_fallback:     false
+has_powerboost:   false
+
+wheels:
+  wheel_thr_L: 24.5
+  wheel_thr_R: 24.5
+  standing_pitch_offset:    0.007

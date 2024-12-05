@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <group ns="$(env ROBOT_NAME)">
+    <arg name="degree" default="90"/>
+    <!-- ARMS -->
+    <node name="move_arm" pkg="ego_dance" type="move_arm_dance_node" output="screen">
+      <param name="degree" value="$(arg degree)"/>
+    </node>
+  </group>
+
+</launch>

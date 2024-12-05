@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="AlterEgoVersion" default="3" />
+  <param name="AlterEgoVersion" value="$(arg AlterEgoVersion)" />
+
+  <group ns="$(env ROBOT_NAME)">
+    <!-- SYSTEM CHECK PATH  -->
+    <param name="SystemCheckPath" value="$(find alterego_robot)/config/SystemCheck.txt"/>
+
+    <!-- GENERAL -->
+    <arg name="yamlVersion" default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/general.yaml"/>
+    <rosparam command="load" file="$(arg yamlVersion)"/>
+    <!-- USB PORT AND SPECIFIC PARAMS -->
+    <arg name="yamlRobotCONFIG" default="$(find alterego_robot)/config/robot_configuration.yaml"/>
+    <rosparam command="load" file="$(arg yamlRobotCONFIG)"/>
+    <!-- ROBOT -->
+    <arg name="yamlRobot" default="$(find alterego_robot)/config/robot.yaml" />
+    <rosparam command="load" file="$(arg yamlRobot)" />
+    <!-- BODY -->
+    <arg name="yamlBody" default="$(find alterego_robot)/config/body.yaml" />
+    <rosparam command="load" file="$(arg yamlBody)"/>
+
+    <group ns="left">
+      <node pkg="arms_head_comm" name="qb_manager" type="qb_manager" output="screen"/>
+    </group>
+
+    <group ns="right">
+      <node pkg="arms_head_comm" name="qb_manager" type="qb_manager" output="screen"/>
+    </group>
+
+  </group>  
+
+</launch>

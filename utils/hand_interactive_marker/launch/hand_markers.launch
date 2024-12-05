@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <group ns="$(env ROBOT_NAME)">
+        <node pkg="hand_interactive_marker" name="right_hand_marker" type="basic_controls" output="screen"/>
+    </group>
+</launch>

@@ -1,0 +1,7 @@
+
+IN_topic_switch_mode: "/Switch_mode"
+
+OUT_hand_pos: "/hand_R_ref"
+OUT_head_pos: "/head_pose"
+OUT_topic_vel: "/base_vel"
+OUT_hand_closure: "/right_hand_closure"

@@ -1,0 +1,27 @@
+wheels:
+  eq_preset: false # [Equilibrium/Preset] -> True , [P1/P2/PL] -> False
+  hand_perc: false # [Hand command in percentual] -> True , [Hand command in TICK] -> False
+  current: false # [Activate current reader] -> True, [Deactivate current reader] -> False
+  unit: 'TICK' # Unit of measurement, ['DEG', 'RAD', 'TICK']
+  step_time: 0.0025 # Step time
+  baudrate: 2000000 # BaudRate [200000, 460800]
+  IDcubes: [33] # ID cubes in chain
+  IDhands: [] # ID hands in chain
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100 
+
+  # Wheels Motors Controllers ---------------------------------------
+  left_wheel_controller:
+    type: effort_controllers/JointEffortController
+    joint: base_link_to_wheel_L
+    pid: {p: 1000.0, i: 0.1, d: 1}
+  right_wheel_controller:
+    type: effort_controllers/JointEffortController
+    joint: base_link_to_wheel_R
+    pid: {p: 1000.0, i: 0.1, d: 1}
+    
+
+  
+

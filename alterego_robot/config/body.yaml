@@ -1,0 +1,56 @@
+left:
+  eq_preset:                      false                 # [Equilibrium/Preset] -> True , [P1/P2/PL] -> False
+  hand_perc:                      false                 # [Hand command in percentual] -> True , [Hand command in TICK] -> False
+  current:                        false                 # [Activate current reader] -> True, [Deactivate current reader] -> False
+  unit:                           'TICK'                # Unit of measurement, ['DEG', 'RAD', 'TICK']
+  baudrate:                       B2000000              # BaudRate [200000, 460800]
+  IDneck:                         21                    #YAW
+  ref_arm_eq_topic:               "ref_cubes_eq"
+  ref_arm_preset_topic:           "ref_cubes_preset"
+  ref_hand_topic:                 "ref_hand"
+  ref_neck_topic:                 "/head/left/ref_neck"
+  meas_arm_m1_topic:              "meas_arm_m1"
+  meas_arm_m2_topic:              "meas_arm_m2"
+  meas_arm_shaft_topic:           "meas_arm_shaft"
+  meas_neck_shaft_topic  :        "meas_neck_shaft"
+  meas_hand_topic:                "meas_hand"
+  acc_hand_topic:                 "acc_hand"
+  cubes_curr_m1_topic:            "curr_arm_m1"
+  cubes_curr_m2_topic:            "curr_arm_m2"
+  hand_has_old_board:             false                   # If set to true, the hand has a PSoC3 board instead of a STM32 or PSoC5 board
+  pressure_topic:                 "pressure"
+  meas_arm_ref1_topic     :       "reference_1"
+  meas_arm_ref2_topic     :       "reference_2"
+  motor_1_state_topic :           "motor_1_state"
+  motor_2_state_topic :           "motor_2_state"
+  robot_state_topic :             "alterego_state"
+  state_info_topic  :             "state_info"
+
+
+right:
+  eq_preset:                      false                   # [Equilibrium/Preset] -> True , [P1/P2/PL] -> False
+  hand_perc:                      false                   # [Hand command in percentual] -> True , [Hand command in TICK] -> False
+  current:                        false                   # [Activate current reader] -> True, [Deactivate current reader] -> False
+  unit:                           'TICK'                  # Unit of measurement, ['DEG', 'RAD', 'TICK']
+  baudrate:                       B2000000                # BaudRate [200000, 460800]
+  IDneck:                         22                      #PITCH
+  ref_arm_eq_topic      :         "ref_cubes_eq"
+  ref_arm_preset_topic  :         "ref_cubes_preset"
+  ref_hand_topic          :       "ref_hand"
+  ref_neck_topic          :       "/head/right/ref_neck"
+  meas_arm_m1_topic     :         "meas_arm_m1"
+  meas_arm_m2_topic     :         "meas_arm_m2"
+  meas_arm_shaft_topic  :         "meas_arm_shaft"
+  meas_neck_shaft_topic  :        "meas_neck_shaft"
+  meas_hand_topic:                "meas_hand"
+  acc_hand_topic:                 "acc_hand"
+  cubes_curr_m1_topic:            "curr_arm_m1"
+  cubes_curr_m2_topic:            "curr_arm_m2"
+  hand_has_old_board    :         false         # If set to true, the hand has a PSoC3 board instead of a STM32 or PSoC5 board
+  pressure_topic:                 "pressure"
+  meas_arm_ref1_topic     :       "reference_1"
+  meas_arm_ref2_topic     :       "reference_2"
+  motor_1_state_topic :           "motor_1_state"
+  motor_2_state_topic :           "motor_2_state"
+  robot_state_topic :             "alterego_state"
+  state_info_topic  :             "state_info"

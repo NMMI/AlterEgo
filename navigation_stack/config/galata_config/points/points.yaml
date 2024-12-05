@@ -1,0 +1,91 @@
+Locations:
+  - Ingresso:
+      position:
+        x: 16.56
+        y: -0.86
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.85
+        w: 0.51
+  - Porto di Genova:
+      position:
+        x: 10.16
+        y: -1.72
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: -0.14
+        w: 1.0
+  - Navi Mercantili:
+      position:
+        x: -0.12
+        y: -4.10
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.094
+        w: 1.0
+  - Emigrazione:
+      position:
+        x: 2.08
+        y: -4.63
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.88
+        w: 0.45
+  - Navi Militari:
+      position:
+        x: 10.94
+        y: -5.81
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: -0.70
+        w: 0.70
+  - Navi Transatlantiche:
+      position:
+        x: 4.17
+        y: -7.5
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.91
+        w: 0.40
+  - Porti d'Europa:
+      position:
+        x: 14.883840888212323
+        y: -5.577089035415129
+        z: 0.0
+      orientation: 
+        x: 0.0
+        y: 0.0
+        z: 0.7438358928243373
+        w: 0.6683623003627756
+  - Navi da Ferro e Carbone:
+      position:
+        x: 5.827440901268306
+        y: -7.203600478412124
+        z: 0.0
+      orientation: 
+        x: 0.0
+        y: 0.0
+        z: 0.30965125545923355
+        w: 0.9508501985026456
+  - Vele:
+      position:
+        x: 8.3575399702214
+        y: -1.23
+        z: 0.0
+      orientation: 
+        x: 0.0
+        y: 0.0
+        z: -0.9964198849974955
+        w: 0.08454237269900815    

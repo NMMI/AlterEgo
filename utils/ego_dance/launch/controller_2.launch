@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+  <group ns="$(env ROBOT_NAME)">
+    <rosparam command="load" file="$(find ego_dance)/config/ego_dance.yaml"/>
+    <node name="ego_dance" pkg="ego_dance" type="controller_2_node" output="screen" > 
+    </node> 
+  </group>
+  
+</launch>

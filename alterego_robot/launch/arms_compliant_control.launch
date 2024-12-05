@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <group ns="$(env ROBOT_NAME)">
+
+    <group ns="right">
+      <node pkg="arms_compliant_control" name="arms_compliant_control_node" type="arms_compliant_control_node" output="screen"/>
+    </group>  
+
+    <group ns="left">
+      <node pkg="arms_compliant_control" name="arms_compliant_control_node" type="arms_compliant_control_node" output="screen"/>
+    </group>  
+  </group>  
+
+</launch>
+

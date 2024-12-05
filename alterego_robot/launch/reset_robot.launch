@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="AlterEgoVersion" default="3" />
+  <node pkg="reset_robot" name="reset_robot" type="reset_robot_node" output="screen"/>
+
+</launch>

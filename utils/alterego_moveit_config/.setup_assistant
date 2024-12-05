@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: alterego_robot
+    relative_path: alterego_description/urdf/ego_robot_gazebo_v3.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/ego_robot.srdf
+  CONFIG:
+    author_name: Giovanni Rosato
+    author_email: giovanni.rosato@iit.it
+    generated_timestamp: 1730828443

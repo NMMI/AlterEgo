@@ -1,0 +1,82 @@
+KeyPoints:
+  - Porto di Genova:
+      position:
+        x: 10.16
+        y: -1.72
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: -0.14
+        w: 1.0
+  - Navi Mercantili:
+      position:
+        x: -0.12
+        y: -4.10
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.094
+        w: 1.0
+  - Emigrazione:
+      position:
+        x: 2.08
+        y: -4.63
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.88
+        w: 0.45
+  - Navi Militari:
+      position:
+        x: 10.94
+        y: -5.81
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: -0.70
+        w: 0.70
+  - Navi Transatlantiche:
+      position:
+        x: 4.17
+        y: -7.5
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.91
+        w: 0.40
+  - Il porto di genova di Andrea Figari:
+      position:
+        x: 10.28697681427002
+        y: -4.53265380859375
+        z: 0.0
+      orientation: 
+        x: 0.0
+        y: 0.0
+        z: 0.9011489327353601
+        w: 0.4335096319920947
+  - Il porto di genova con i piroscafi di Giorgio belloni:
+      position: 
+        x: 9.667830467224121
+        y: -2.6734166145324707
+        z: 0.0
+      orientation: 
+        x: 0.0
+        y: 0.0
+        z: -0.25795266600832734
+        w: 0.9661575555255967
+  - I pescatori issano le reti di Ludolph Georg Julius Berkemeyer:
+      position: 
+        x: 11.538873672485352
+        y: 0.6434924602508545
+        z: 0.0
+      orientation: 
+        x: 0.0
+        y: 0.0
+        z: -0.7181061995025357
+        w: 0.695933535789176
+

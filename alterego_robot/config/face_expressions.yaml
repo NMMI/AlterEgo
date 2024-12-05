@@ -1,0 +1,4 @@
+face_expressions:
+  emoticon_topic: "emoticons"
+  voice_intensity_topic: "voice_intensity"
+  temperature_topic: "temperature"

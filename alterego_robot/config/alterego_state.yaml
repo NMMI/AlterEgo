@@ -1,0 +1,20 @@
+left_meas_arm_shaft: "left/meas_arm_shaft"
+left_meas_neck_shaft: "left/meas_neck_shaft"
+left_meas_arm_m1: "left/meas_arm_m1"
+left_meas_arm_m2: "left/meas_arm_m2"
+left_wheel_encoder: "wheels/encoders/left"
+left_weight: "left/weight"
+
+right_meas_arm_shaft: "right/meas_arm_shaft"
+right_meas_neck_shaft: "right/meas_neck_shaft"
+right_meas_arm_m1: "right/meas_arm_m1"
+right_meas_arm_m2: "right/meas_arm_m2"
+right_wheel_encoder: "wheels/encoders/right"
+right_weight: "right/weight"
+
+encoder: "wheels/qb_interface_node/qb_class/cube_measurement"
+gyroscope: "imu/gyro_good"
+
+base_lin_vel: "wheels/base_lin_vel"
+base_ang_vel: "wheels/base_ang_vel"
+RPY: "imu/RPY"

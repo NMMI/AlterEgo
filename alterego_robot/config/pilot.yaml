@@ -1,0 +1,65 @@
+###--------------------------------------------------------INPUT TOPICS ###
+
+IN_topic_arms_compliant_control: "Enable_arms_compliant"
+auto_mode_status_topic: "auto_mode_status"
+
+## ------------------------------ LEFT SIDE
+L_IN_topic_track: "hand_L_ref"
+L_IN_topic_index: "left_hand_closure"
+L_IN_topic_button_X: "Button_X"
+L_IN_topic_button_Y: "Button_Y"
+L_IN_topic_stiff: "stiff_ref_pose/L"
+L_IN_topic_hand:  "LH_hand"
+
+
+## ------------------------------ RIGHT SIDE
+R_IN_topic_track: "hand_R_ref"
+R_IN_topic_index: "right_hand_closure"
+R_IN_topic_button_A: "Button_A"
+R_IN_topic_button_B: "Button_B"
+R_IN_topic_stiff: "stiff_ref_pose/R"
+R_IN_topic_hand:  "RH_hand"
+
+
+## ------------------------------ HEAD SIDE
+H_IN_topic_track: "head_pose"
+
+## ------------------------------ VELOCITY
+R_IN_topic_thumbstick_x: "RH_joy_x"
+R_IN_topic_thumbstick_y: "RH_joy_y"
+L_IN_topic_thumbstick_x: "LH_joy_x"
+L_IN_topic_thumbstick_y: "LH_joy_y"
+BASE_IN_VEL_topic: "base_vel"
+CMD_VEL_IN_topic: "cmd_vel"
+
+### --------------------------------------------------------OUTPUT TOPICS ###
+L_OUT_topic_track: "left/hand_pos"
+L_OUT_topic_index: "left/ind"
+L_OUT_topic_hand:  "left/hand"
+L_OUT_topic_button_X: "Button_x"
+L_OUT_topic_button_Y: "Button_y"
+L_OUT_topic_stiff: "left/stiff_ref_pose"
+
+## ------------------------------ RIGHT SIDE
+R_OUT_topic_track: "right/hand_pos"
+R_OUT_topic_index: "right/ind"
+R_OUT_topic_hand:  "right/hand"
+R_OUT_topic_button_A: "Button_a"
+R_OUT_topic_button_B: "Button_b"
+R_OUT_topic_stiff: "right/stiff_ref_pose"
+
+## ------------------------------ HEAD SIDE
+H_OUT_topic_track: "head/head_pos"
+
+## ------------------------------ VELOCITY
+L_OUT_topic_thumbstick_x: "left/joy_x"
+L_OUT_topic_thumbstick_y: "left/joy_y"
+R_OUT_topic_thumbstick_x: "right/joy_x"
+R_OUT_topic_thumbstick_y: "right/joy_y"
+BASE_OUT_VEL_topic: "wheels/segway_des_vel"
+
+BASE_scaling_factor_lin_vel: 1.5
+BASE_scaling_factor_ang_vel: 0.75
+
+# L_OUT_topic_index: "/left_hand_v3/synergy_command"
+# R_OUT_topic_index: "/right_hand_v3/synergy_command"

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="AlterEgoVersion" default="3" />
+    <!-- ************** AlterEgo Stack ************** -->
+    <group ns="$(env ROBOT_NAME)">
+
+        <node pkg="teleop_keyboard_cpp" name="teleop_ego_keyboard" type="teleop_ego_keyboard" output="screen" />
+
+    </group>
+
+</launch>
