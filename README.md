@@ -160,8 +160,8 @@ Run the demo.launch
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-<!-- Mantainers -->
-<h2 id="Mantainers"> Mantainers</h2>
+<!-- Miantainers -->
+<h2 id="Maintainers"> Miantainers</h2>
 <p>
   :man: <b>Giovanni Rosato</b> <br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email: <a>giovanni.rosato@iit.it</a> <br>
