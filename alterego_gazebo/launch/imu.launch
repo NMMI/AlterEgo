@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- ARG -->
+  <arg name="yamlImu" default="$(find alterego_robot)/config/imu.yaml" />
+  <arg name="yamlFile" default="$(find alterego_robot)/config/sensors.yaml" />
+
+  <!-- PARAM -->
+  <rosparam command="load" file="$(arg yamlImu)"/>
+  <rosparam command="load" file="$(arg yamlFile)"/>
+
+  <!-- SIM QB CLASS -->
+  
+  <node pkg="sim_qb_interface" name="Sensor"  type="Sensor_node_sim" args="0" output="screen" />                            <!-- Activate simulated hw (imu)-->
+  <node pkg="sim_qb_interface" name="sim_qb_interface_wheels_node"  type="sim_qb_class_wheels" args="0" output="screen" />  <!-- Activate simulated hw (encoders)-->
+ 
+
+</launch>

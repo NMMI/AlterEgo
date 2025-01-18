@@ -15,7 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   cmake_modules
   urdf
-  ego_msgs
+  alterego_msgs
 )
 
 ## Find Eigen3
@@ -32,7 +32,7 @@ set(CMAKE_BUILD_TYPE Release)
 
 catkin_package(
   INCLUDE_DIRS include ${Eigen3_INCLUDE_DIRS}
-  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs ego_msgs
+  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs alterego_msgs
   DEPENDS Eigen3
 )
 
@@ -47,10 +47,10 @@ include_directories(
   ${RBDL_INCLUDE_DIR}
 )
 
-add_executable(dance_with_me_node src/controller.cpp src/dance_with_me.cpp src/main_dance_with_me.cpp)
-add_dependencies(dance_with_me_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(dance_with_me_node 
-    ${catkin_LIBRARIES} 
-    ${RBDL_LIBRARY} 
-    ${RBDL_URDFReader_LIBRARY}
-)
+# add_executable(dance_with_me_node src/controller.cpp src/dance_with_me.cpp src/main_dance_with_me.cpp)
+# add_dependencies(dance_with_me_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(dance_with_me_node 
+#     ${catkin_LIBRARIES} 
+#     ${RBDL_LIBRARY} 
+#     ${RBDL_URDFReader_LIBRARY}
+# )

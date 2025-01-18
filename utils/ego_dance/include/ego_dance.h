@@ -18,9 +18,8 @@
 #include <std_msgs/Float64.h>
 #include <std_msgs/Float64MultiArray.h>
 #include <std_msgs/Bool.h>
-#include <ego_msgs/AlteregoState.h>
-#include <ego_msgs/UpperBodyState.h>
-#include <ego_msgs/LowerBodyState.h>
+#include <alterego_msgs/UpperBodyState.h>
+#include <alterego_msgs/LowerBodyState.h>
 #include <geometry_msgs/TwistStamped.h>
 
 #include <boost/scoped_ptr.hpp>
@@ -89,13 +88,13 @@ class EgoDance // class: user defined datatype
 
    // flag when the arm is ready
    sensor_msgs::JointState joint_state_msg_;
-   ego_msgs::AlteregoState state_info_msg;
+   alterego_msgs::AlteregoState state_info_msg;
 
 
    
  private:
-    void callback_upperbody_state(const ego_msgs::UpperBodyState::ConstPtr &msg);
-    void callback_lowerbody_state(const ego_msgs::LowerBodyState::ConstPtr &msg);
+    void callback_upperbody_state(const alterego_msgs::UpperBodyState::ConstPtr &msg);
+    void callback_lowerbody_state(const alterego_msgs::LowerBodyState::ConstPtr &msg);
     void callback_switch_mode(const std_msgs::Int8::ConstPtr &msg);
 
     void new_target_points();

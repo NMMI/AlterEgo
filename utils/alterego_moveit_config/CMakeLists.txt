@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.1.3)
 project(alterego_moveit_config)
 
 find_package(catkin REQUIRED COMPONENTS
-  ego_msgs
+  alterego_msgs
   geometry_msgs
   message_generation
   rospy
@@ -22,7 +22,7 @@ generate_messages(
 )
 
 catkin_package(
-  CATKIN_DEPENDS ego_msgs message_runtime geometry_msgs rospy std_msgs
+  CATKIN_DEPENDS alterego_msgs message_runtime geometry_msgs rospy std_msgs
 )
 
 include_directories(

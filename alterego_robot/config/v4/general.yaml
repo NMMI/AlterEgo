@@ -1,0 +1,103 @@
+# General Parameters
+pressure_fb_enabled:        false
+vibrotactile_fb_enabled:    false
+rigid_shoulder:             false
+use_addon:                  false
+AlterEgoVersion:              4
+arm_cubes_n:                  5
+
+left:
+  IDsArm: [1, 2, 3, 4, 5] # ID cubes in chain
+  IDhand: 6 # ID hands in chain
+  arm_l: 0.432
+  DH_table: [0, -1.57, 0.084, 0, 0, -1.57, 0, 1.57, 0, -1.57, 0.168, 1.57, 0, 1.57, 0, 0, 0, 0, 0.18, 3.14]
+  DH_Xtr: [0, 0, 0, 0, 0]
+  DH_Xrot: [-1.57, -1.57, -1.57, 1.57, 0]
+  DH_Ztr: [0.084, 0, 0.168, 0, 0.18]
+  DH_Zrot: [0, 1.57, 1.57, 0, 3.14]
+  T_t2s: [0, 0, 1, 0, 1, 0 ,0, 0.11, 0, 1, 0, 0, 0, 0, 0, 1]
+  # T_t2s: [0, -0.1736, 0.9848, 0.008, 0.9848, -0.1710,-0.0301, 0.108, 0.1736, 0.9698, 0.1710, 0.009, 0, 0, 0, 1] #Torso to Shoulder ( fixed transformation )
+  T_o2t: [0, 0, 1, 0, 0, -1, 0, 0.194, 1, 0, 0, 0, 0, 0, 0, 1] #oculus to Torso ( fixed transformation )
+  T_h2fwk: [0, 0, 1, 0, 0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1]
+  R_o2b: [0, 0, -1, -1, 0, 0, 0, 1, 0]
+  q_min: [-1.57, -0.81, -1.57, -2.355, -1.57]
+  q_max: [1.57, 1.57, 1.57, 0, 1.57]
+  qbmove_tf_ids: [1, 2, 3, 4, 5]
+  softhand_tf_id: 6
+  R_p2r: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+  stiffness_vec: [0.0, 0.2, 0.2, 0.2, 0.2]
+  stiffness_vec_power: [0.0, 0.81, 0.8, 0.6, 0.6, 0.4]
+  R_5to6: [0, 0, 1, 0, 1, 0, -1, 0, 0]
+  a_mot: [11, 11, 11, 11, 11] #needs testing a_mot: [9, 9, 11, 11, 11]
+  k_mot: [0.02, 0.02, 0.02, 0.02, 0.02]
+  offset_m1: [0,0,0.05,0,0]
+  offset_m2: [0,0,0.05,0,0]
+
+  #parametri non ottimizzati
+  a_mot_1: [0, 22, 11, 11, 11]
+  k_mot_1: [0, 0.04, 0.02, 0.02, 0.02]
+  a_mot_2: [0, 22, 11, 11, 11]
+  k_mot_2: [0, 0.04, 0.02, 0.02, 0.02]
+
+  Lambda_or: 5 #10 in simulazione
+  Lambda_pos: 100 #30 in simulazione
+  kp: 90 #20 per computed torque
+  kh: 19 #12
+  p: 0.001
+  kc: 1000
+
+right:
+  IDsArm: [11, 12, 13, 14, 15] # ID cubes in chain
+  IDhand: 16 # ID hands in chain
+  arm_l: 0.432
+  DH_table: [0, -1.57, 0.084, 0, 0, 1.57, 0, 1.57, 0, -1.57, 0.168, 1.57, 0, 1.57, 0, 0, 0, 0, 0.18, 3.14]
+  DH_Xtr: [0, 0, 0, 0, 0]
+  DH_Xrot: [-1.57, 1.57, -1.57, 1.57, 0]
+  DH_Ztr: [0.084, 0, 0.168, 0, 0.18]
+  DH_Zrot: [0, 1.57, 1.57, 0, 3.14]
+  # T_t2s: [0.0,-0.1736, -0.9848, 0.008, 0.9848, 0.1710, -0.0301, -0.108, 0.1736, -0.9698, 0.1710, 0.009, 0, 0, 0, 1]
+  T_t2s: [0, 0, -1, 0, 1, 0 ,0, -0.11, 0, -1, 0, 0, 0, 0, 0, 1]
+  T_o2t: [0, 0, -1, 0, 0, 1, 0, -0.194, 1, 0, 0, 0, 0, 0, 0, 1]
+  T_h2fwk: [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1]
+  R_o2b: [0, 0, -1, -1, 0, 0, 0, 1, 0]
+  q_min: [-1.57, -1.57, -1.57, 0, -1.57]
+  q_max: [1.57, 0.81, 1.57, 2.355, 1.57]
+  qbmove_tf_ids: [11, 12, 13, 14, 15]
+  softhand_tf_id: 16
+  R_p2r:  [1, 0, 0, 0, 1, 0, 0, 0, 1]
+  stiffness_vec: [0.0, 0.2, 0.2, 0.2, 0.2]
+  stiffness_vec_power: [0.0, 0.74, 0.65, 0.57, 0.57, 0.4]
+  R_5to6: [0, 0, -1, 0, 1, 0, 1, 0, 0]
+  a_mot: [11, 11, 11, 11, 11] #needs testing a_mot: [9, 9, 11, 11, 11]
+  k_mot: [0.02, 0.02, 0.02, 0.02, 0.02]
+    #parametri elastici non ottimizzati
+  a_mot_1: [0, 22, 11,11, 11]
+  k_mot_1: [0, 0.04, 0.02, 0.02, 0.02]
+  a_mot_2: [0, 22, 11, 11, 11]
+  k_mot_2: [0, 0.04, 0.02, 0.02, 0.02]
+
+  #parametri elastici nuovi ottimizzati
+  #a_mot_1: [0, 26.99, 9, 5.3887, 11, 11]
+  #k_mot_1: [0, 0.01, 0.002, 0.02, 0.02, 0.02] 
+  #a_mot_2: [0, 20.59, 9.63, 6.0584, 11, 11] 
+  #k_mot_2: [0, 0.04, 0.002, 0.02, 0.02, 0.02] 
+
+  offset_m1: [0,0,0.005,0.005,0]
+  offset_m2: [0,0,0.005,0.005,0]
+  Lambda_or: 5 #10 in simulazione
+  Lambda_pos: 100 #30 in simulazione
+  kp: 20 #120 simulation and adaptive backstepping, 250 for backstepping 
+  kh: 12 #22 simulation and adaptive backstepping, 35 for backstepping
+  p: 0.001
+  kc: 1000
+
+
+wheels:
+
+  #           x | pitch | dx | pitch rate |  yaw    | yaw rate
+  k_feed: [ -8.0, -909.8, -55,    -170,     40.2236,   50.2114, 
+            -8.0, -909.8, -55,    -170,    -40.2236,  -50.2114]
+
+  R_: 0.125
+  W_: 0.55
+  N_: 0.31

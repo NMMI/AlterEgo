@@ -12,6 +12,6 @@
 			default="$(find alterego_robot)/config/face_expressions.yaml" />
 		<rosparam command="load" file="$(arg yamlFile)" />
 
-		<node pkg="face_expressions" name="face_expressions" type="face_expressions" output="screen" />
+		<node pkg="alterego_face_expressions" name="face_expressions" type="face_expressions" output="screen" />
 	</group>
 </launch>

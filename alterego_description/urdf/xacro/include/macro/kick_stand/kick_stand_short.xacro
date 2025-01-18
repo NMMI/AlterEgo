@@ -1,0 +1,48 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="macros_kick_stand">
+
+	<xacro:macro name="kick_stand_short"  params="name parent *origin type">
+				
+		<joint name="${parent}_to_${name}" type="${type}">
+			<axis xyz="0 1 0"/>
+			<limit effort="100.0" lower="-0.223333333" upper="0"  velocity="100.0"/>
+			<xacro:insert_block name="origin"/>
+			<parent link="${parent}"/>
+			<child link="${name}"/>
+		</joint>
+
+		<link name="${name}">
+			<visual>
+				<material name="SoftLightBlue"/>
+				<geometry>
+					<mesh filename="package://alterego_description/meshes/alterego_v4/collision/salv_v04.stl" scale="0.001 0.001 0.001"/>
+				</geometry>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+			</visual>
+			<inertial>
+				<origin xyz="1.4145524e-01 -1.9010396e-03 -2.9789835e-01" rpy="0 0 0"/>
+					<mass value="1.28051"/>
+					<inertia ixx="0.045150445"  ixy="-0.00015485365"  	    ixz="0.009011675" 
+												iyy="0.047124241" 	    iyz="0.00044459311" 
+																			izz="0.0021852249" />
+			</inertial>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<mesh filename="package://alterego_description/meshes/alterego_v4/collision/salv_v04.stl" scale="0.001 0.001 0.001"/>
+				</geometry>
+			</collision>
+		</link>
+
+		<gazebo reference="${name}">
+			<material>Gazebo/Grey</material>
+			<selfCollide>true</selfCollide>
+		</gazebo>
+
+		<gazebo reference="${parent}_to_${name}">
+			<implicitSpringDamper>true</implicitSpringDamper>
+			<springStiffness>120</springStiffness>
+			<springReference>0.0</springReference>
+		</gazebo>
+
+	</xacro:macro>
+</robot>

@@ -11,7 +11,7 @@
     <rosparam command="load" file="$(arg yamlFile)"/>
     <node pkg="rosserial_server" name="socket" type="socket_node" output="screen"/>
 
-    <node pkg="pilot_bridge" name="inbound_data" type="inbound_data" output="screen"/>
+    <node pkg="alterego_teleop_bridge" name="inbound_data" type="inbound_data" output="screen"/>
     
 
   </group>  

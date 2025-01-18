@@ -1,0 +1,80 @@
+﻿VOLUME =  2.8114584e+05  MM^3
+AREA SUPERFICIE =  2.0682341e+05  MM^2
+DENSITÀ MEDIA =  4.5546399e-06 CHILOGRAMMO / MM^3
+MASSA =  1.2805181e+00 CHILOGRAMMO 
+BARICENTRO rispetto a sistema di coordinate ACS0:
+X   Y   Z     1.4145524e+02 -1.9010396e+00 -2.9789835e+02  MM
+
+INERZIA rispetto a sistema di coordinate ACS0:  (CHILOGRAMMO * MM^2)
+
+TENSORE DI INERZIA:
+Ixx Ixy Ixz  1.5879263e+05  1.8949305e+02  6.2971787e+04
+Iyx Iyy Iyz  1.8949305e+02  1.8638443e+05 -2.8058548e+02
+Izx Izy Izz  6.2971787e+04 -2.8058548e+02  2.7812488e+04
+
+INERZIA al BARICENTRO rispetto a sistema di coordinate ACS0:  (CHILOGRAMMO * MM^2)
+
+TENSORE DI INERZIA:
+Ixx Ixy Ixz  4.5150445e+04 -1.5485365e+02  9.0116750e+03
+Iyx Iyy Iyz -1.5485365e+02  4.7124241e+04  4.4459311e+02
+Izx Izy Izz  9.0116750e+03  4.4459311e+02  2.1852249e+03
+
+MOMENTI PRINCIPALI DI INERZIA:  (CHILOGRAMMO * MM^2)
+I1  I2  I3   3.6698489e+02  4.6942048e+04  4.7150878e+04
+
+MATRICE DI ROTAZIONE da orientamento ACS0 agli ASSI PRINCIPALI:
+      -0.19730        0.92667       -0.31994
+      -0.00997        0.32444        0.94585
+       0.98029        0.18980       -0.05477
+
+ANGOLI DI ROTAZIONE da orientamento ACS0 agli ASSI PRINCIPALI (gradi):
+angoli attorno a x  y  z -93.314        -18.660       -102.019 
+
+RAGGI DI GIRAZIONE rispetto a ASSI PRINCIPALI:
+R1  R2  R3 1.6928997e+01  1.9146445e+02  1.9188986e+02  MM
+
+---------------------------------------------
+
+PROPRIETÀ DI MASSA DI COMPONENTI DI ASSIEME
+(in unità di assieme a il sistema di coordinate ACS0)
+
+   DENSITÀ             MASSA          C.G.:  X        Y         Z
+
+            SALVOTTO_023_102_HNG           MATERIALE:                 METAL_ALUMINIUM_6061
+         2.69879e-06  8.52902e-02  5.01193e+01 -2.09497e+01 -1.85916e+00
+              HFSB5_2020_500_TPW           MATERIALE:                                     
+         7.75000e-06  7.05770e-01  1.33260e+02  0.00000e+00 -2.35965e+02
+            RUOTA_SAL_SHORT_V101           MATERIALE:                              UNKNOWN
+         4.84539e-06  3.95840e-01  1.80529e+02 -1.48645e+00 -5.04048e+02
+                        SHNTE5_5           MATERIALE:                                     
+         7.75000e-06  3.18186e-03  9.23476e+01 -6.68857e+00 -3.93923e+00
+                        SHNTE5_5           MATERIALE:                                     
+         7.75000e-06  3.18186e-03  8.43030e+01  0.00000e+00  3.16618e+00
+                        SHNTE5_5           MATERIALE:                                     
+         7.75000e-06  3.18186e-03  8.65604e+01  0.00000e+00 -9.63632e+00
+            ENISO4762_M5X10_INST           MATERIALE:                                STEEL
+         7.82708e-06  3.48228e-03  7.82768e+01  0.00000e+00 -1.10969e+01
+            ENISO4762_M5X10_INST           MATERIALE:                                STEEL
+         7.82708e-06  3.48228e-03  7.60194e+01  0.00000e+00  1.70555e+00
+            ENISO4762_M5X10_INST           MATERIALE:                                STEEL
+         7.82708e-06  3.48228e-03  9.23476e+01 -1.41000e+01 -3.93923e+00
+             COVER_SALV8_023_101           MATERIALE:               PLASTIC_ABS_3D-PRINTED
+         7.58000e-07  2.86300e-02  1.47000e+02 -3.39256e-04 -3.08126e+02
+             COVER_SALV8_023_201           MATERIALE:               PLASTIC_ABS_3D-PRINTED
+         7.58000e-07  2.57189e-02  1.10546e+02  4.38314e-01 -9.66983e+01
+                         HNTE5_4           MATERIALE:                                     
+         7.75000e-06  3.35004e-03  1.03386e+02  0.00000e+00 -2.79934e+01
+                         HNTE5_4           MATERIALE:                                     
+         7.75000e-06  3.35004e-03  1.38116e+02  0.00000e+00 -2.24955e+02
+                         HNTE5_4           MATERIALE:                                     
+         7.75000e-06  3.35004e-03  1.64163e+02  0.00000e+00 -3.72676e+02
+                         HNTE5_4           MATERIALE:                                     
+         7.75000e-06  3.35004e-03  1.29433e+02  0.00000e+00 -1.75715e+02
+                            M4X8           MATERIALE:              METAL_STEEL_HIGH_CARBON
+         7.48000e-06  1.46921e-03  1.07257e+02  0.00000e+00 -2.73109e+01
+                            M4X8           MATERIALE:              METAL_STEEL_HIGH_CARBON
+         7.48000e-06  1.46921e-03  1.33304e+02  0.00000e+00 -1.75032e+02
+                            M4X8           MATERIALE:              METAL_STEEL_HIGH_CARBON
+         7.48000e-06  1.46921e-03  1.41987e+02  0.00000e+00 -2.24272e+02
+                            M4X8           MATERIALE:              METAL_STEEL_HIGH_CARBON
+         7.48000e-06  1.46921e-03  1.68034e+02  0.00000e+00 -3.71994e+02

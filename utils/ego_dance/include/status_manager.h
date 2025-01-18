@@ -19,7 +19,7 @@
 #include <tf/tf.h>
 #include <geometry_msgs/TransformStamped.h>
 
-#include <ego_msgs/AlteregoState.h>
+#include <alterego_msgs/AlteregoState.h>
 
 #include <geometry_msgs/Pose.h>
 

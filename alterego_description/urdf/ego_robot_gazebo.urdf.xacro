@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+ 
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ego_robot">
+
+  <!-- args for the directories -->
+  <xacro:arg name="VERSION" default="2"/>
+  <xacro:arg name="ENABLE_CAMERA" default="false"/>
+  <xacro:arg name="ENABLE_LASER" default="false"/>
+  <xacro:arg name="ENABLE_REALSENSE" default="false"/>
+  <xacro:arg name="ENABLE_FLOATING_BASE" default="false"/>
+  <xacro:arg name="ENABLE_FIXED_BASE" default="false"/>
+  <xacro:arg name="ENABLE_FIXED_HANDS" default="false"/>
+  <xacro:arg name="xacro_dir" default="$(find alterego_description)/urdf/xacro"/>
+  <xacro:arg name="meshes_common_dir" default="$(find alterego_description)/meshes/common"/>
+  <xacro:arg name="robot_name" default="$(optenv ROBOT_NAME robot_alterego_sim)"/>
+
+
+  <!-- Include xacro macro and args for directories -->
+  <xacro:include filename="$(arg xacro_dir)/include/header.xacro" />
+  <!-- SENSORS: IMU/Camera/Lidar/RealSens  -->
+  <xacro:include filename="$(arg xacro_dir)/common/sensors.xacro"/>
+  <!-- WHEELS -->
+  <xacro:include filename="$(arg xacro_dir)/common/wheels.xacro" />
+
+  <!-- Gazebo Plugin -->
+  <xacro:include filename="$(find alterego_description)/urdf/ego_robot.gazebo" />
+
+  <xacro:if value="$(arg ENABLE_FLOATING_BASE)">
+    <xacro:include filename="$(arg xacro_dir)/common/floating_base.xacro" />
+  </xacro:if> 
+
+  <!-- Body -->
+  <xacro:include filename="$(arg xacro_dir)/alterego_v$(arg VERSION)/body.xacro" />
+  <!-- Head -->
+  <xacro:include filename="$(arg xacro_dir)/alterego_v$(arg VERSION)/head.xacro" />
+  <!-- Arms Arm -->
+  <xacro:include filename="$(arg xacro_dir)/alterego_v$(arg VERSION)/left_arm.xacro" />
+  <xacro:include filename="$(arg xacro_dir)/alterego_v$(arg VERSION)/right_arm.xacro" />
+  <!-- Kickstand -->
+  <xacro:property name="has_kickstand" default="$(arg VERSION)"/>
+  <xacro:unless value="${has_kickstand == 2}">
+    <xacro:include filename="$(arg xacro_dir)/alterego_v$(arg VERSION)/kick_stands.xacro" />
+  </xacro:unless>
+</robot>
+

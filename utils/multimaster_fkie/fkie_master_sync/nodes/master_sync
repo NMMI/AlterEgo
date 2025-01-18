@@ -1,5 +1,0 @@
-#!/usr/bin/env python
-
-import fkie_master_sync
-print("NODE MASTER SYNC")
-fkie_master_sync.main()

@@ -1,0 +1,12 @@
+float64 des_wheels_angular_pos_
+float64 wheels_angular_pos
+float64 offset_pitch_
+float64 pitch_angle
+float64 des_wheels_angular_vel_
+float64 wheels_angular_vel
+float64 des_pitch_rate
+float64 pitch_rate
+float64 des_yaw_
+float64 yaw_angle
+float64 des_yaw_rate_
+float64 yaw_rate

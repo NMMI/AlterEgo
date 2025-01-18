@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>alterego_description</name>
+  <version>0.10.1</version>
+  <description>alterego_description contains URDF files and meshes of Alterego robots</description>
+
+  <url type="website">https://www.naturalmachinemotioninitiative.com/ego</url>
+  <url type="repository">https://github.com/NMMI/AlterEgo.git</url>
+
+  <author>NMMI</author>
+  <author>Istituto Italiano di Tecnologia, Soft Robotics for Human Cooperation and Rehabilitation Lab</author>
+  <author>Centro di Ricerca E. Piaggio</author>
+  
+  <maintainer email="mattia.poggiani@iit.it">Mattia Poggiani</maintainer>
+  
+  <license>BSD 3-Clause</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>xacro</exec_depend>
+  <test_depend>rosunit</test_depend>
+</package>

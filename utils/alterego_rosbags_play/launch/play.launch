@@ -1,0 +1,10 @@
+<launch>
+
+  <!-- Startup client node -->
+  <group ns="$(env ROBOT_NAME)">
+    <arg name="bag_name" default="breath.bag"/>
+    <param name="bag_name" value="$(arg bag_name)"/>
+    <node pkg="alterego_rosbags_play" type="rosbag_play_loop.py" name="rosbag_play" output="screen"/>
+  </group>
+</launch>
+

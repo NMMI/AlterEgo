@@ -1,9 +1,0 @@
-<launch>
-    <!-- Node 1 -->
-    <node name="video_publisher" pkg="video_service" type="close_gstreamer_server.py" output="screen">
-    </node>
-
-    <!-- Node 2 -->
-    <node name="video_subscriber" pkg="video_service" type="launch_gstreamer_server.py" output="screen">
-    </node>
-</launch>

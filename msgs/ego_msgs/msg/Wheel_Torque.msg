@@ -1,2 +1,0 @@
-float64 left_wheel_torque
-float64 right_wheel_torque

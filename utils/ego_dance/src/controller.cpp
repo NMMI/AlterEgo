@@ -6,7 +6,7 @@
 // ----------------------------------------------------------------------------------------------------------
 // Callback Functions to acquire the element of vector Q, to update it.
 // ----------------------------------------------------------------------------------------------------------
-void EgoDance::callback_upperbody_state(const ego_msgs::UpperBodyState::ConstPtr &msg)
+void EgoDance::callback_upperbody_state(const alterego_msgs::UpperBodyState::ConstPtr &msg)
 {
     for (int i = 0; i < body_names_.size(); i++)
     {
@@ -80,7 +80,7 @@ void EgoDance::callback_upperbody_state(const ego_msgs::UpperBodyState::ConstPtr
   // }
 
 
-void EgoDance::callback_lowerbody_state (const ego_msgs::LowerBodyState::ConstPtr &msg)
+void EgoDance::callback_lowerbody_state (const alterego_msgs::LowerBodyState::ConstPtr &msg)
 {
 
   

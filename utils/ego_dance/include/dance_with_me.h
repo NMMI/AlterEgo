@@ -18,7 +18,8 @@
 #include <std_msgs/Float64.h>
 #include <std_msgs/Float64MultiArray.h>
 #include <std_msgs/Bool.h>
-#include <ego_msgs/AlteregoState.h>
+#include <alterego_msgs/UpperBodyState.h>
+#include <alterego_msgs/LowerBodyState.h>
 #include <geometry_msgs/TwistStamped.h>
 #include <tf/transform_listener.h>
 #include <tf/transform_broadcaster.h>

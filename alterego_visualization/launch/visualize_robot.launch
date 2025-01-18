@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="AlterEgoVersion" default="3"/>
+    <arg name="urdf_dir" value="$(find alterego_description)/urdf/ego_robot_gazebo_v$(arg AlterEgoVersion).urdf.xacro" />
+    <param name="robot_description"
+        command="$(find xacro)/xacro '$(arg urdf_dir)' ENABLE_CAMERA:=false ENABLE_LASER:=false ENABLE_REALSENSE:=false" />
+    <group ns="$(env ROBOT_NAME)">      
+      <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
+      <node pkg="visualize_robot" name="visualize_robot" type="visualize_robot_node" output="screen"/> 
+      <node pkg="rviz" type="rviz" name="rviz" args="-d $(find alterego_robot)/config/ego.rviz" />
+    </group>  
+
+</launch>

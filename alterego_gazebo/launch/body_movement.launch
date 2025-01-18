@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="AlterEgoVersion" default="3" />
+
+  <!-- ARG -->
+  <arg name="yamlArms" default="$(find alterego_robot)/config/body_movement.yaml" />
+  <arg name="yamlHead" default="$(find alterego_robot)/config/head.yaml" />
+  <arg name="yamlPitch"
+    default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/pitch_correction.yaml" />
+  <arg name="yamlVersion"
+    default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/general.yaml" />
+
+  <!-- PARAM -->
+  <rosparam command="load" file="$(arg yamlArms)" />
+  <rosparam command="load" file="$(arg yamlHead)" />
+  <rosparam command="load" file="$(arg yamlPitch)" />
+  <rosparam command="load" file="$(arg yamlVersion)" />
+
+
+  <!-- ARMS -->  
+  <group ns="right">
+    <node pkg="alterego_body_inv_kin" name="arm_inv_kin_main" type="arm_inv_kin_main" output="screen" />
+    <node pkg="alterego_body_inv_dyn" name="arm_inv_dyn" type="arm_inv_dyn" output="screen" />
+  </group>
+
+  <group ns="left">
+    <node pkg="alterego_body_inv_kin" name="arm_inv_kin_main" type="arm_inv_kin_main" output="screen" />
+     <node pkg="alterego_body_inv_dyn" name="arm_inv_dyn" type="arm_inv_dyn" output="screen" />
+  </group>
+
+
+  <!-- HEAD -->
+  <group ns="head">
+    <node pkg="alterego_body_inv_kin" name="head_inv_kin" type="head_inv_kin" output="screen" />
+  </group>
+
+  <!-- PITCH CORR -->
+  <node pkg="alterego_body_inv_kin" name="pitch_correction" type="pitch_correction" output="screen" />
+
+
+</launch>

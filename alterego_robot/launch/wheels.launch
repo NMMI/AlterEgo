@@ -18,11 +18,11 @@
     <!-- WHEELS -->
     <arg name="yamlFile" default="$(find alterego_robot)/config/wheels.yaml" />
     <rosparam command="load" file="$(arg yamlFile)"/>
-
     <group ns="wheels">
-      <node name="qb_interface_node" pkg="qb_interface" type="qb_interface" args="0" output="screen" />
-      <node pkg="segway_base_controller" name="lqr" type="lqr_node" output="screen"/>
-      <node pkg="segway_base_controller" name="system_check" type="system_check_node" output="screen"/>
+
+      <node name="qb_interface_node" pkg="qb_interface" type="qb_interface" args="0" output="screen" />      <!-- Activate encoders and motors --> 
+      <node pkg="alterego_wheels_controller" name="lqr" type="lqr_node" output="screen"/>                        <!-- Wheels controller -->
+      <node pkg="alterego_error_handler" name="error_handler" type="error_handler_node" output="screen"/>      <!-- Error handler for battery residuals and sensors lost-->
     </group>
 
   </group>  

@@ -1,3 +1,0 @@
-string object_name
-geometry_msgs/Point position
-geometry_msgs/Quaternion orientation

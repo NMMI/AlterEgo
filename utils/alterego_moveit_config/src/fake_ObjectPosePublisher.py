@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import rospy
-from ego_msgs.msg import DetectedObjectInfo
+from alterego_msgs.msg import DetectedObjectInfo
 from geometry_msgs.msg import Point, Quaternion
 from gazebo_msgs.srv import GetModelState, GetWorldProperties
 import os

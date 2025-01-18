@@ -7,7 +7,7 @@
 // Callback Functions to acquire the element of vector Q, to update it.
 // ----------------------------------------------------------------------------------------------------------
 
-void MoveArm::callback_robot_state(const ego_msgs::AlteregoState::ConstPtr &msg)
+void MoveArm::callback_robot_state(const alterego_msgs::AlteregoState::ConstPtr &msg)
 {
   pitch_angle = (double)msg->pitch_angle;
 

@@ -33,10 +33,10 @@
   <run_depend>xacro</run_depend>
   <run_depend>rospy</run_depend>
   <run_depend>std_msgs</run_depend>
-  <!-- devo aggiungere gli ego_msgs -->
+  <!-- devo aggiungere gli alterego_msgs -->
   <build_depend>geometry_msgs</build_depend>
 
-  <build_depend>ego_msgs</build_depend>
+  <build_depend>alterego_msgs</build_depend>
   <build_depend>message_generation</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
@@ -44,7 +44,7 @@
 
   <run_depend>message_runtime</run_depend>
 
-  <run_depend>ego_msgs</run_depend>
+  <run_depend>alterego_msgs</run_depend>
 
 
   <!-- The next 2 packages are required for the gazebo simulation.

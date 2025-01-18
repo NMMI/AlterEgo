@@ -4,9 +4,8 @@
 #include <std_msgs/Float64.h>
 #include <std_msgs/Float64MultiArray.h>
 
-#include <ego_msgs/AlteregoState.h>
-#include <ego_msgs/LowerBodyState.h>
-#include <ego_msgs/UpperBodyState.h>
+#include <alterego_msgs/LowerBodyState.h>
+#include <alterego_msgs/UpperBodyState.h>
 #include <qb_interface/cubePos.h>
 
 #define PI 3.1416
@@ -140,9 +139,8 @@ private:
 
   bool use_addon = false;
 
-  ego_msgs::AlteregoState state_info_msg;
-  ego_msgs::LowerBodyState lowerbody_state_msgs;
-  ego_msgs::UpperBodyState upperbody_state_msgs;
+  alterego_msgs::LowerBodyState lowerbody_state_msgs;
+  alterego_msgs::UpperBodyState upperbody_state_msgs;
 
   double angleDiff(double a, double b);
   double unwrap(double previousAngle, double newAngle);

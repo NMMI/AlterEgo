@@ -14,7 +14,7 @@
 #include <std_msgs/Float64MultiArray.h>
 #include <std_msgs/Bool.h>
 
-#include <ego_msgs/AlteregoState.h>
+#include <alterego_msgs/AlteregoState.h>
 
 class MoveArm // class: user defined datatype
 {             // we define the members (variables==properties and functions==methods) of the class
@@ -34,7 +34,7 @@ public:       // variables and functions declare here are accessible aslo outsid
 private:
    ros::NodeHandle nh;
 
-   void callback_robot_state(const ego_msgs::AlteregoState::ConstPtr &msg);
+   void callback_robot_state(const alterego_msgs::AlteregoState::ConstPtr &msg);
    // ---------------------------------------------------------------------------------------------------publisher:
    ros::Publisher pub_ref_eq_arm_left;
    ros::Publisher pub_ref_pr_arm_left;

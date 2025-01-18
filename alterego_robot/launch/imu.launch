@@ -26,8 +26,8 @@
     <rosparam command="load" file="$(arg yamlVersion)"/>
 
     <group ns="imu">
-      <node name="qb_interface_imu_node" pkg="qb_interface" type="qb_interface_imu" args="0" output="screen" />
-      <node name="Sensor" pkg="segway_base_controller" type="Sensor_node" args="0" output="screen" />
+      <node pkg="alterego_imu" name="Sensor" type="Sensor_node" args="0" output="screen" />
+      <node pkg="qb_interface" name="qb_interface_imu_node"  type="qb_interface_imu" args="0" output="screen" />
     </group>
 
     <node pkg="alterego_state_publisher" name="alterego_state_publisher" type="alterego_state_publisher" output="screen"/>

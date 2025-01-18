@@ -35,7 +35,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/mc_seg_imu_supp_1_100.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/mc_seg_imu_supp_1_100.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -47,7 +47,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/mc_seg_imu_supp_1_100.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/mc_seg_imu_supp_1_100.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -61,7 +61,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/rplidar_a2_slamtec.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/rplidar_a2_slamtec.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -73,7 +73,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/rplidar_a2_slamtec.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/rplidar_a2_slamtec.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -90,7 +90,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/zedm.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/zedm.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -102,7 +102,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/zedm.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/zedm.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -132,7 +132,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/intel_realsense_d415_old_asm.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/intel_realsense_d415_old_asm.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="1.57 0 1.57" xyz="0 0 0"/>
     </visual>
@@ -144,7 +144,7 @@
     <collision>
       <origin rpy="1.57 0 1.57" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/intel_realsense_d415_old_asm.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/intel_realsense_d415_old_asm.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -183,7 +183,7 @@
     <visual>
       <material name="wheel"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/mteg100_varvel_gearbox.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/mteg100_varvel_gearbox.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -222,7 +222,7 @@
     <visual>
       <material name="wheel"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/mteg100_varvel_gearbox.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/mteg100_varvel_gearbox.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -610,7 +610,7 @@
     <visual>
       <material name="SoftLightBlue"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/aego_base.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/aego_base.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -621,7 +621,7 @@
     </inertial>
     <collision>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/aego_base.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/aego_base.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -651,7 +651,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -664,7 +664,7 @@
       <material name="qbmove/cube"/>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -684,7 +684,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/qb_mate_advanced_plus_add.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/qb_mate_advanced_plus_add.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -719,7 +719,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/la_flg_c_wb_large.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/la_flg_c_wb_large.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -731,7 +731,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/la_flg_c_wb_large.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/la_flg_c_wb_large.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -751,7 +751,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -785,7 +785,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/fsens_hinge_001.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/fsens_hinge_001.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -797,7 +797,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/fsens_hinge_001.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/fsens_hinge_001.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -815,7 +815,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -827,7 +827,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -847,7 +847,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -882,7 +882,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/la_flg_asm_c_wb_blu.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/la_flg_asm_c_wb_blu.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -894,7 +894,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/la_flg_asm_c_wb_blu.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/la_flg_asm_c_wb_blu.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -914,7 +914,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -949,7 +949,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -961,7 +961,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -981,7 +981,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/left_wrist_v2_1_urdf.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/left_wrist_v2_1_urdf.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -993,7 +993,7 @@
     <collision>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/left_wrist_v2_1_urdf.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/left_wrist_v2_1_urdf.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -1016,7 +1016,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/softhand_3_sx_urdf.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/softhand_3_sx_urdf.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1028,7 +1028,7 @@
     <collision>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/softhand_3_sx_urdf.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/softhand_3_sx_urdf.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -1061,7 +1061,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1074,7 +1074,7 @@
       <material name="qbmove/cube"/>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1094,7 +1094,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/qb_mate_advanced_plus_add.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/qb_mate_advanced_plus_add.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1129,7 +1129,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/la_flg_c_wb_large.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/la_flg_c_wb_large.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1141,7 +1141,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/la_flg_c_wb_large.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/la_flg_c_wb_large.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1161,7 +1161,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1195,7 +1195,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/fsens_hinge_001.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/fsens_hinge_001.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1207,7 +1207,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/fsens_hinge_001.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/fsens_hinge_001.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1225,7 +1225,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1237,7 +1237,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1257,7 +1257,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1292,7 +1292,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/la_flg_asm_c_wb_blu.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/la_flg_asm_c_wb_blu.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1304,7 +1304,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/la_flg_asm_c_wb_blu.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/la_flg_asm_c_wb_blu.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1324,7 +1324,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1359,7 +1359,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/la_flg_asm_flat_blu.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1371,7 +1371,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/la_flg_asm_flat_blu.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1391,7 +1391,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/right_wrist_v2_1_urdf.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/right_wrist_v2_1_urdf.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1403,7 +1403,7 @@
     <collision>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/right_wrist_v2_1_urdf.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/right_wrist_v2_1_urdf.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -1426,7 +1426,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/softhand_3_dx_urdf.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/softhand_3_dx_urdf.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1438,7 +1438,7 @@
     <collision>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/collision/softhand_3_dx_urdf.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/collision/softhand_3_dx_urdf.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
@@ -1469,7 +1469,7 @@
     <visual>
       <material name="qbmove/flange"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/flange_c_long_new.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/flange_c_long_new.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1481,7 +1481,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/flange_c_long_new.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/flange_c_long_new.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1504,7 +1504,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/common/visual/qb_move_advanced_for_mate.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1534,7 +1534,7 @@
     <visual>
       <material name="qbmove/cube"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/mteg102_head_201.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/mteg102_head_201.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1546,7 +1546,7 @@
     <collision>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/mteg102_head_201.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/mteg102_head_201.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1578,7 +1578,7 @@
     <visual>
       <material name="SoftLightBlue"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/salv_v04.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/salv_v04.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1590,7 +1590,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/salv_v04.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/salv_v04.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1608,7 +1608,7 @@
     <visual>
       <material name="wheel"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/gyul50.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/gyul50.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1620,7 +1620,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/gyul50.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/gyul50.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1638,7 +1638,7 @@
     <visual>
       <material name="SoftLightBlue"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/salv_v04.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/salv_v04.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1650,7 +1650,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/salv_v04.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/salv_v04.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1668,7 +1668,7 @@
     <visual>
       <material name="wheel"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/visual/gyul50.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/visual/gyul50.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
     </visual>
@@ -1680,7 +1680,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://alterego_robot/alterego_description/meshes/alterego_v3/collision/gyul50.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://alterego_description/meshes/alterego_v3/collision/gyul50.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>

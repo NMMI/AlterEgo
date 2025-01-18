@@ -5,7 +5,7 @@
   <arg name="use_sim_time" default="false" />
   <!-- LOAD ROBOT DESCRIPTION  -->
   <arg name="urdf_dir"
-    value="$(find alterego_robot)/alterego_description/urdf/ego_robot_gazebo_v$(arg AlterEgoVersion).urdf.xacro" />
+    value="$(find alterego_description)/urdf/ego_robot_gazebo_v$(arg AlterEgoVersion).urdf.xacro" />
   <param name="robot_description"
     command="$(find xacro)/xacro '$(arg urdf_dir)' ENABLE_CAMERA:=false ENABLE_LASER:=false ENABLE_REALSENSE:=false" />
 

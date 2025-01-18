@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os
 import rospy
-from ego_msgs.msg import EgoArms, UpperBodyState
+from alterego_msgs.msg import EgoArms, UpperBodyState
 import numpy as np
 from std_msgs.msg import Bool
 

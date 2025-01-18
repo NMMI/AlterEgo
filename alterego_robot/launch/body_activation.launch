@@ -22,11 +22,11 @@
     <rosparam command="load" file="$(arg yamlBody)"/>
 
     <group ns="left">
-      <node pkg="arms_head_comm" name="qb_manager" type="qb_manager" output="screen"/>
+      <node pkg="alterego_body_activation" name="qb_manager" type="qb_manager" output="screen"/>
     </group>
 
     <group ns="right">
-      <node pkg="arms_head_comm" name="qb_manager" type="qb_manager" output="screen"/>
+      <node pkg="alterego_body_activation" name="qb_manager" type="qb_manager" output="screen"/>
     </group>
 
   </group>  

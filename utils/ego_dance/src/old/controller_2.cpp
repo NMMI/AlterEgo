@@ -21,7 +21,7 @@ void EgoDance::callback_switch_mode (const std_msgs::Int8::ConstPtr &msg)
 // ----------------------------------------------------------------------------------------------------------
 
 
-void EgoDance::callback_robot_state (const ego_msgs::AlteregoState::ConstPtr &msg)
+void EgoDance::callback_robot_state (const alterego_msgs::AlteregoState::ConstPtr &msg)
 {
 
   // Joint order ego_robot_gazebo_v3:

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="AlterEgoVersion" default="3" />
+
+  <!-- YAML DIR -->
+  <arg name="yamlVersion" default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/general.yaml"/>
+  <arg name="yamlPlugin" default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/compliant_plugin.yaml" />
+  <arg name="yamlBody"   default="$(find alterego_robot)/config/body.yaml" />
+  <arg name="yamlRobot"  default="$(find alterego_robot)/config/robot.yaml" />
+
+
+  <!-- PARAM -->
+  <rosparam command="load" file="$(arg yamlPlugin)" />
+  <rosparam command="load" file="$(arg yamlRobot)" />
+  <rosparam command="load" file="$(arg yamlBody)" />
+  <rosparam command="load" file="$(arg yamlVersion)"/>
+
+
+  <!-- PLUGIN -->
+  <group ns="left">
+    <node pkg="plugin_manager" name="plugin_manager_node" type="plugin_manager_node" output="screen"/>
+    <node pkg="alterego_body_activation_sim" name="sim_qb_manager" type="sim_qb_manager" output="screen"/>
+  </group>
+
+  <group ns="right">
+    <node pkg="plugin_manager" name="plugin_manager_node" type="plugin_manager_node" output="screen"/>
+    <node pkg="alterego_body_activation_sim" name="sim_qb_manager" type="sim_qb_manager" output="screen"/>
+  </group>
+  
+
+</launch>

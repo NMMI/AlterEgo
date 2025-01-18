@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="macros_cube">
+
+<xacro:macro name="fixed_hand"  params="name parent *origin side">
+    
+
+	<!-- JOINT -->
+	<joint name="${parent}_to_${name}_joint" type="fixed">
+			<axis xyz="0 0 1" />
+			<xacro:insert_block name="origin" />
+			<parent link="${parent}" />
+			<child link="${name}_link" />
+	</joint>
+
+
+		<!-- LINK -->
+
+	
+	<link name="${name}_link">
+		<visual>
+				<material name="qbmove/cube" />
+				<geometry>
+					<mesh
+						filename="package://alterego_description/meshes/common/visual/softhand_3_${side}_urdf.dae"
+						scale="0.001 0.001 0.001" />
+				</geometry>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+			</visual>
+		<inertial>
+				<origin rpy="0 0 0" xyz="4.1728393e-3  6.3287667e-2 6.0659797e-3" />
+				<mass value="2.9013125e-1" />
+				<inertia ixx="5.6377846e-4" ixy="-2.5891425e-5" ixz="-1.0142109e-5"
+					iyy="1.4989796e-4" iyz="5.9361645e-6"
+					izz="4.4769789e-4" />
+		</inertial>
+		<collision>
+				<material name="qbmove/cube" />
+				<geometry>
+					<mesh
+						filename="package://alterego_description/meshes/common/collision/softhand_3_${side}_urdf.stl"
+						scale="0.001 0.001 0.001" />
+				</geometry>
+				<origin xyz="0 0 0" rpy="0 0 0" />
+		</collision>
+	</link>
+
+	<!-- GAZEBO REFERENCE -->
+	<gazebo reference="${name}_link">
+		<material>Gazebo/Grey</material>
+		<selfCollide>false</selfCollide>
+  	</gazebo>
+
+</xacro:macro>
+
+</robot>

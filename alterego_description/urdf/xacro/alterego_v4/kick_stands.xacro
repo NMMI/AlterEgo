@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="kick_stand">
+
+    <!-- FRONT -->
+    <xacro:kick_stand_short name="front_kick_stand" parent="base_link" type="revolute">
+      <origin rpy="0 0 0" xyz="-0.025 0 445e-3"/>
+    </xacro:kick_stand_short>
+    <xacro:kick_stand_wheel name="front_wheel" parent="front_kick_stand" type="continuous">
+      <origin xyz=" 183.618e-3 0 -521.559e-3" rpy="-1.5707963 0.1745327 3.1415927" />
+    </xacro:kick_stand_wheel>
+
+    <!-- BACK -->
+    <xacro:kick_stand_short name="back_kick_stand" parent="base_link" type="revolute">
+      <origin rpy="0 0 3.1415927" xyz="0.025 0 445e-3"/>
+    </xacro:kick_stand_short>
+    <xacro:kick_stand_wheel name="back_wheel" parent="back_kick_stand" type="continuous">
+      <origin xyz=" 183.618e-3 0 -521.559e-3"  rpy="-1.5707963 0.1745327 3.1415927" />
+    </xacro:kick_stand_wheel>
+</robot>

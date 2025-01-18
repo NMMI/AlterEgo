@@ -1,0 +1,6 @@
+<launch>
+  <group ns="$(env ROBOT_NAME)">
+    <node pkg="alterego_face_recognition" type="face_recognition.py" name="face_recognition" />
+  </group>
+</launch>
+

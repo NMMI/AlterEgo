@@ -118,8 +118,8 @@ alterego_state_publisher::alterego_state_publisher(double rate) : flag_first_enc
   arm_R_q_addon_init = 0;
 
   //---------------------------------------------------------------------------------------------------------- Publishers
-  pub_lowerbody_ = nh.advertise<ego_msgs::LowerBodyState>("alterego_state/lowerbody", 1);
-  pub_upperbody_ = nh.advertise<ego_msgs::UpperBodyState>("alterego_state/upperbody", 1);
+  pub_lowerbody_ = nh.advertise<alterego_msgs::LowerBodyState>("alterego_state/lowerbody", 1);
+  pub_upperbody_ = nh.advertise<alterego_msgs::UpperBodyState>("alterego_state/upperbody", 1);
 
   //---------------------------------------------------------------------------------------------------------- Init msgs
   upperbody_state_msgs.right_meas_neck_shaft = 0;

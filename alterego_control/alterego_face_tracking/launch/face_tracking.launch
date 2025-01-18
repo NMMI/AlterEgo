@@ -1,0 +1,8 @@
+<launch>
+
+  <!-- Startup client node -->
+  <group ns="$(env ROBOT_NAME)">
+    <node pkg="alterego_face_tracking" type="face_tracker.py" name="face_tracker" />
+  </group>
+</launch>
+

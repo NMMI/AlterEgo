@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+
+    <!-- GENERAL PARAM  -->
+    <arg name="paused" default="true" />
+    <arg name="use_sim_time" default="false" />
+    <arg name="gui" default="true" />
+    <arg name="headless" default="false" />
+    <arg name="debug" default="false" />
+    <arg name="recording" default="false" />
+    <arg name="verbose" default="false" />
+    <arg name="AlterEgoVersion" default="3" />
+    <arg name="yamlVersion"
+        default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/general.yaml" />
+    <arg name="yamlRobot" default="$(find alterego_robot)/config/robot.yaml" />
+    <arg name="yamlWheels" default="$(find alterego_robot)/config/wheels.yaml" />
+    <!-- ARG -->
+
+    <!-- PARAM -->
+
+    <!-- VERSION OF THE ROBOT, THIS VALUE WILL CHANGE THE URDF AND THE LQR GAINS -->
+    <param name="use_sim_time" value="$(arg use_sim_time)" />
+    <arg name="urdf_dir"
+        value="$(find alterego_description)/urdf/ego_robot_gazebo.urdf.xacro" />
+
+
+    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <param name="robot_description"
+        command="$(find xacro)/xacro '$(arg urdf_dir)' 
+        VERSION:=$(arg AlterEgoVersion)
+        ENABLE_CAMERA:=false
+        ENABLE_FLOATING_BASE:=false
+        ENABLE_FIXED_BASE:=false
+        ENABLE_LASER:=false
+        ENABLE_REALSENSE:=false
+        ENABLE_FIXED_HANDS:=true" />
+
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-urdf -model ego_robot -param robot_description -x 0 -y 0 -z 0.13 -R 0.0 -P 0.0 -Y 0" />
+
+    <!-- SIM HW_INTERFACE -->
+    <group ns="$(env ROBOT_NAME)">
+
+        <rosparam command="load" file="$(arg yamlRobot)" />
+        <rosparam command="load" file="$(arg yamlVersion)" />
+        <rosparam command="load" file="$(arg yamlWheels)" />
+        <group ns="wheels">
+            <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="true"
+                output="screen"
+                args="--timeout 0 joint_state_controller left_wheel_controller right_wheel_controller " />
+        </group>
+    </group>
+</launch>

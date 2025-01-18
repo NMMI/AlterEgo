@@ -3,7 +3,7 @@ import sys
 import os
 import rospy
 import moveit_commander
-from ego_msgs.msg import EgoArms, DetectedObjectInfo
+from alterego_msgs.msg import EgoArms, DetectedObjectInfo
 from sensor_msgs.msg import JointState
 from moveit_msgs.msg import DisplayTrajectory
 from geometry_msgs.msg import Pose, PoseStamped

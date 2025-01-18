@@ -21,7 +21,7 @@ TEST_F(MyTestFixture, TestName) {
 In summary, use TEST when you have a single test case that does not need any setup or teardown code, and use TEST_F when you have a test case that requires a fixture to set up the environment and clean up after the test
 */
 
-std::string checkMessage(const ego_msgs::AlteregoState &msg, size_t ndof)
+std::string checkMessage(const alterego_msgs::AlteregoState &msg, size_t ndof)
 {
     // Check scalar fields
     std::vector<std::pair<double, std::string>> scalar_fields = {
@@ -136,7 +136,7 @@ protected:
         must_run = false;
         run_loop_thread.join();
     }
-    void stateOutput(const ego_msgs::AlteregoState::ConstPtr &msg)
+    void stateOutput(const alterego_msgs::AlteregoState::ConstPtr &msg)
     {
         if (!received_message)
         {
@@ -150,8 +150,8 @@ protected:
     ros::NodeHandle nh;
     ros::Subscriber ego_state_sub_;
     ros::Publisher random_publisher;
-    ego_msgs::AlteregoState received_msg;
-    ego_msgs::AlteregoState first_received_msg;
+    alterego_msgs::AlteregoState received_msg;
+    alterego_msgs::AlteregoState first_received_msg;
     bool received_message = false;
     int AlterEgoVersion;
 };
@@ -172,7 +172,7 @@ TEST_F(AlterEgoStatePublisherTest, StateIsRunning)
         ndof_ = 6;
     else
         ndof_ = 5;
-    std::string non_zero_fields = checkMessage(static_cast<const ego_msgs::AlteregoState &>(received_msg), ndof_);
+    std::string non_zero_fields = checkMessage(static_cast<const alterego_msgs::AlteregoState &>(received_msg), ndof_);
     ASSERT_TRUE(non_zero_fields.empty()) << "The non-zero fields are: " << non_zero_fields;
 }
 

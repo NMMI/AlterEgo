@@ -713,7 +713,7 @@ void ego_dance::run()
 //  16: wheel_L_RZ
 //  17: wheel_R_RZ
 
-void ego_dance::callback_robot_state(const ego_msgs::AlteregoState::ConstPtr &msg)
+void ego_dance::callback_robot_state(const alterego_msgs::AlteregoState::ConstPtr &msg)
 {
   Q[0] = (double)msg->mobile_base_pos_x;
   Q[1] = (double)msg->mobile_base_pos_y;

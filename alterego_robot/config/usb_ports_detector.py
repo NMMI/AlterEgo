@@ -18,9 +18,9 @@ def detect_lidar_usb_port():
         print(port)
         if "CP2102" in port.description:
             lidar_port = port.device
-        if "QBDUMMY 166" == port.description or "QBDUMMY 170" == port.description or "QBDUMMY 181" == port.description:
+        if "QBDUMMY 166" in port.description or "QBDUMMY 170" in port.description or "QBDUMMY 168" in port.description or "QBDUMMY 181" in port.description:
             left_arm_port = port.device
-        if "QBDUMMY 167" == port.description or "QBDUMMY 173" == port.description or "QBDUMMY 18" == port.description:
+        if "QBDUMMY 167" in port.description or "QBDUMMY 173" in  port.description or  "QBDUMMY 164" in port.description or "QBDUMMY 18" in port.description:
             right_arm_port = port.device
         if "QBMMP" in port.description:
             wheels_port = port.device

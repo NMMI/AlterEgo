@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="AlterEgoVersion" default="3" />
+  <group ns="$(env ROBOT_NAME)">
+
+    <arg name="yamlVersion"
+      default="$(find alterego_robot)/config/v$(arg AlterEgoVersion)/general.yaml" />
+    <rosparam command="load" file="$(arg yamlVersion)" />
+    <arg name="yamlFile" default="$(find alterego_robot)/config/pilot.yaml" />
+    <rosparam command="load" file="$(arg yamlFile)" />
+
+    <node pkg="rosserial_server" name="socket" type="socket_node" output="screen" />
+
+    <node pkg="alterego_teleop_bridge" name="inbound_data" type="inbound_data" output="screen" />
+  </group>
+
+</launch>
+
+
+<!-- Virtual CAM -->
+
+<!-- <node pkg="virtual_cam" name="virtual_ZED" type="stream" output="screen">
+    <param name="device" value="/dev/video2"/>
+    <param name="width" value="2560"/>
+    <param name="height" value="720"/>
+    <param name="fourcc" value="YV12"/>
+  </node>
+
+  <node name="ffmpeg_streaming" pkg="virtual_cam" type="Av_com_Oculus.sh" />
+ -->
+
+
+<!-- </launch> -->

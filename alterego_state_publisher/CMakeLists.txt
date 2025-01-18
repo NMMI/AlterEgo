@@ -18,7 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   cmake_modules
   urdf
-  ego_msgs
+  alterego_msgs
   message_generation
   rostest
 )
@@ -34,7 +34,7 @@ catkin_package(
   INCLUDE_DIRS ${Eigen3_INCLUDE_DIRS}
 
   # LIBRARIES my_ego
-  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs ego_msgs rostest
+  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs alterego_msgs rostest
 
   # DEPENDS system_lib
   DEPENDS Eigen3
